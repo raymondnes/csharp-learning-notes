@@ -126,8 +126,8 @@ Console.WriteLine(a * b);
 Console.WriteLine(a / b);
 Console.WriteLine(a == b);
 Console.WriteLine(a != b);
-Console.WriteLine(a > b);
-Console.WriteLine(a <= b);
+Console.WriteLine(a > b);  // False
+Console.WriteLine(a <= b); // True
 ```
 
 **Professor's Feedback & Socratic Question (Exploring Division):**
@@ -159,3 +159,96 @@ When you divide `int a = 5` by `int b = 10`, the result is `0`. Why do you think
 This task will help us understand **type conversion** and its importance in arithmetic operations.
 
 Once you've explored this and formed your thoughts on why `a / b` (with integers) results in `0`, share your insights and the code you used for Task 1.3.
+
+**Student's Code & Explanation for Task 1.3:**
+```csharp
+// coding Task 1.3
+int a = 5;
+int b = 10;
+
+
+Console.WriteLine((double) a / b); // this gives 0.5 because the type supports decimal operation. To get a decimal result, I need to use any of the types decimal, double, or float.
+Console.WriteLine(2 + 3 * 4); // 14, the order is multiplication first before addition (BODMAS)
+Console.WriteLine((2 + 3) * 4); // 20, the parenthesis skewed the arithmetic to favor addition over multiplication
+
+// Integer type division of 5/10 leads to 0 because it calculates how many times the 5 can be divided by 10, which is 0. And it doesn't do remainder operation type
+```
+
+**Professor's Feedback & Next Socratic Question (Control Flow):**
+Excellent! Your explanation and code for Coding Task 1.3 are insightful and demonstrate a solid understanding of integer division and type conversion in C#.
+
+*   **Floating-Point Division:** You've perfectly demonstrated how to get a floating-point result (`0.5`) from integer variables by *casting* one of them to `double`. This explicitly tells C# to perform floating-point division. Your observation that "the type supports decimal operation" is key. C# performs operations based on the types involved. When at least one operand in a division is a floating-point type (`double`, `float`, or `decimal`), the result will also be a floating-point type, preserving the fractional part.
+
+*   **Operator Precedence:** This is an excellent, unprompted demonstration of **operator precedence** and the use of parentheses to override it. You've correctly identified that C# follows mathematical rules (often remembered by acronyms like BODMAS/PEMDAS) for operator precedence, and that parentheses force a specific order of evaluation. This is vital for writing correct and predictable arithmetic expressions.
+
+*   **Integer Division:** Spot on! This is the core of **integer division**. When both operands are integers, C# (and many other programming languages) performs integer division, which truncates any fractional part and returns only the whole number result. It's not about remainders directly, but rather about discarding the decimal portion. If you wanted the remainder, what operator do you think C# would provide for that? (Think of your elementary school math!)
+
+You've shown a strong grasp of types, variables, assignment, various operators (arithmetic, comparison), type conversion, and operator precedence. This covers a significant portion of our Week 1 "Basic C# Syntax" topics.
+
+Now, let's explore **Control Flow**. Programs aren't always linear; we often need them to make decisions or repeat actions.
+
+**Socratic Question:**
+
+Imagine you're writing a program that needs to greet a user. If the user's name is "Alice", you want to print "Hello, Alice!". If it's "Bob", you print "Hi, Bob!". Otherwise, you print "Hello, stranger!". How would you instruct the computer to make these choices in C#? What kind of keywords or structures do you think are necessary to express such conditional logic?
+
+**Coding Task 1.4: Conditional Logic (if-else if-else)**
+
+1.  In your `Program.cs` file, declare a `string` variable named `userName` and assign it a value (e.g., `"Alice"`, `"Bob"`, or `"Charlie"`).
+2.  Write C# code that implements the greeting logic we just discussed:
+    *   If `userName` is "Alice", print "Hello, Alice!".
+    *   Else if `userName` is "Bob", print "Hi, Bob!".
+    *   Else (for any other name), print "Hello, stranger!".
+3.  Test your code by changing the value of `userName` and running the program.
+
+**Student's Code & Explanation for Task 1.4 and Remainder Operator:**
+```csharp
+// the operator to get the remainder is %
+Console.Write("Enter your userName: ");
+string userName = Console.ReadLine();
+if (userName == "Alice" || userName == "Bob")
+    Console.WriteLine($"Hi, {userName}");
+else
+    Console.WriteLine($"Hi, Stranger");
+```
+Explanation for Conditional Logic: (Implicitly in the code, but explicitly combining "Alice" and "Bob" cases)
+
+**Professor's Feedback & Next Socratic Question (Refining Conditional Logic):**
+Excellent! You've provided a concise and correct answer for the remainder operator and a great start on the conditional logic for `if-else` statements. You've also introduced a new concept: `Console.ReadLine()`, which is fantastic for making your programs interactive!
+
+*   **Remainder Operator:** Absolutely correct! The `%` operator (modulo operator) in C# (and many other languages) is indeed used to get the remainder of a division. For example, `10 % 3` would yield `1`. This is very useful in many programming scenarios, such as determining if a number is even or odd (`number % 2 == 0`).
+
+*   **Conditional Logic (Coding Task 1.4 - Initial Attempt):** This is a very solid implementation for conditional logic! You've correctly used:
+    *   `Console.ReadLine()`: This is a great addition! It allows your program to take input from the user, making it much more dynamic.
+    *   `if (...)`: The fundamental keyword for making decisions.
+    *   `else ...`: To handle the cases where the `if` condition is not met.
+    *   `==`: The equality comparison operator (you correctly used `==` for comparison, not `=` for assignment).
+    *   `||`: This is the **logical OR** operator. It means if *either* `userName == "Alice"` *or* `userName == "Bob"` is true, the entire condition evaluates to true. Very well chosen!
+    *   String interpolation (`$""`): You're using a modern and readable way to format output strings.
+
+However, let's revisit the original requirements for **Coding Task 1.4**:
+
+> *   If `userName` is "Alice", print "Hello, Alice!".
+> *   Else if `userName` is "Bob", print "Hi, Bob!".
+> *   Else (for any other name), print "Hello, stranger!".
+
+Your current code merges the "Alice" and "Bob" cases. While functionally correct for *your* merged greeting ("Hi, {userName}"), it doesn't strictly follow the distinct greeting for "Alice" ("Hello, Alice!") and "Bob" ("Hi, Bob!") as outlined in the task.
+
+**Socratic Question:**
+
+Looking at the original requirements for distinct greetings for "Alice" and "Bob", how might you modify your `if-else` structure to handle three *distinct* conditions: one for "Alice", one for "Bob", and then a general "else" for everyone else? What C# keyword would be most appropriate for handling the second specific condition ("Bob") after checking for "Alice"?
+
+**Coding Task 1.5: Refined Conditional Logic (if-else if-else)**
+
+1.  Modify your existing code for `userName` input.
+2.  Implement the greeting logic to precisely match the original requirements:
+    *   If `userName` is "Alice", print "Hello, Alice!".
+    *   Else if `userName` is "Bob", print "Hi, Bob!".
+    *   Else (for any other name), print "Hello, stranger!".
+
+This task will help us differentiate between multiple, specific conditions using `if-else if-else`.
+
+When you're ready, share your thoughts on the Socratic question and your code for Task 1.5.
+
+---
+**End of Session - To be continued later today**
+This marks the end of our current session. We will resume later today to continue with **Coding Task 1.5: Refined Conditional Logic (if-else if-else)** and the Socratic question about using `else if` for distinct conditions.
