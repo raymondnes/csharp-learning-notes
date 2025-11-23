@@ -22,8 +22,6 @@ This brings us to our next question: If we want to store a piece of text like "H
 
 **Professor's Response & Coding Task 1.1:** Excellent! You've precisely identified the fundamental types C# uses for those values: string for "hello world" and int for 5. This shows a strong intuitive grasp of how data is categorized in programming.
 
-Now, let's deepen our understanding of these.
-
 When you declare a string or an int in C#, you are essentially telling the compiler, "This variable will hold this *kind* of data."
 
 **Coding Task 1.1: Declare and Initialize**
@@ -43,7 +41,7 @@ Console.WriteLine(num);
 `
 Explanation: "It works because the variable welcome has the correct type syntax which is string and the num 4 has integer as its type. Console.WriteLine is an object that displays both variables stored values"
 
-**Professor's Follow-up Questions:**
+**Professor's Follow-up Questions (Type Enforcement & Operations):**
 Your code is perfectly correct for the task! You've successfully declared and initialized both a string and an int variable, and then used Console.WriteLine() to display their values.
 
 Now, let's go back to our earlier Socratic question:
@@ -58,4 +56,24 @@ Consider this:
 um (which is int), how might it handle an operation like 
 um + 2? Or if it didn't know welcome was a string, how would it handle welcome + "!"? What's the difference in how + works for numbers versus text, and how do types help C# understand which operation to perform?
 
-Think about these questions, and when you're ready, share your insights. We're building a strong foundation here.
+**Student's Responses to Type Enforcement & Operations:**
+1.  **Type Mismatch:** "It will throw an error, that it cannot implicitly convert type string to int. This happens because csharp is a strongly typed language."
+2.  **Operations:** "if it didn't know num was int, it will treat it like a string concatenation, I guess. So output will be 42. for welcome, it will treat it as a string too, and concatenate. In numbers, + calculates and addition, while in text, it joins the words together. C# will consider the types before performing an operation with the variable."
+
+**Professor's Feedback & Next Socratic Question:**
+You've demonstrated an excellent grasp of these fundamental concepts!
+
+1.  **Type Mismatch:** You are absolutely correct. C# is a **strongly-typed** language, meaning it enforces type compatibility strictly. Attempting to assign a string to an int (or vice-versa) without an explicit conversion will result in a compile-time error. This prevents many common programming mistakes before the program even runs, leading to more robust and reliable code. This is a core benefit of strong typing.
+
+2.  **Operations without Type Knowledge:** Your intuition is spot on for both scenarios. If a language *didn't* know 
+um was an int, it might indeed default to treating everything as text, leading to unexpected results like "4" + "2" becoming "42" instead of 4 + 2 becoming 6. This highlights how types provide **clarity and predictability** to operations. For string types, the + operator performs **concatenation**, joining the strings together. This demonstrates **operator overloading**, where the same symbol (+) can perform different actions depending on the types of the operands. C#'s type system allows it to intelligently choose the correct operation.
+
+You've articulated a fundamental understanding of why C# benefits from its type system: it ensures code correctness at compile-time, prevents runtime errors, provides clarity in operations, and enables features like operator overloading.
+
+Now, let's move to our next concept for Week 1: **Variable Assignment and Reassignment**. You've already used variables (welcome, 
+um) and the assignment operator (=) when you first gave them values.
+
+We've seen that variables hold values, and types define what kind of values they hold. But what if we wanted to change the value of a variable *after* it's been declared? For instance, after int num = 4;, if we wanted 
+um to become 7. How do you think you would express that in C# code, and what does that tell us about the nature of variables?
+
+As you consider this, there's no new coding task immediately, but feel free to experiment with changing variable values in your Program.cs file.
