@@ -329,8 +329,91 @@ Imagine you have a menu in a console application, and you *always* want to displ
 This task will help you understand a scenario where a `do-while` loop is particularly useful.
 
 ---
-**End of Session - To be continued**
-This marks the end of our current session. We will resume later to continue with **Coding Task 1.7: Introduction to `do-while` loops**.
+**Session Resumed**
+
+**Professor's Follow-up:** We are resuming our session to complete Coding Task 1.7.
+
+**Student's Initial (Buggy) Code for Task 1.7:**
+```csharp
+// do while loop ensures that a code runs at least once before the condition is checked
+Console.Write("Enter \'yes\' to continue or \'no\' to stop: ");
+string onGoingStatus = Console.ReadLine();
+do
+{
+    Console.WriteLine("This will always run at least once.");
+    while (onGoingStatus == "yes")
+    {
+        Console.WriteLine("This will always run at least once.");
+        Console.Write("Enter \'yes\' to continue or \'no\' to stop: ");
+    }
+}
+while (onGoingStatus == "no");
+{
+    Console.WriteLine("The user has cancelled the flow");
+}
+
+           
+Console.WriteLine("This will exit now");
+```
+Explanation: "there are some bug in the code, kindly enlighthen me... I got confused as to how to keep it running, and also I had issues with breaking the condition flow if the user typed 'no'."
+
+**Professor's Socratic Guidance (Loop Structure & Condition):**
+You've correctly identified the core principle of a `do-while` loop: it always executes the code block at least once. Let's look at your code together. I see you have a `while` loop *inside* your `do-while` loop.
+
+1.  A `do-while` loop is already designed to repeat actions. What is the purpose of the second, nested `while` loop?
+2.  Look at the condition at the end: `while (onGoingStatus == "no");`. If the goal is to *continue* looping when the user says "yes", what should this condition be checking for?
+3.  Inside your `do` block, where do you need to ask the user for input again so that their new answer can be checked in the next iteration?
+
+**Student's Response & Professor's Guidance (Condition Logic):**
+Student: "1. the value should be 'yes'. 2. While (true)"
+
+Professor: You're right that the loop should continue when `onGoingStatus` is "yes". However, `while(true)` creates an infinite loop. How can you express the thought—"`onGoingStatus` is equal to 'yes'"—as a C# Boolean expression inside the `while()` parentheses?
+
+Student: "it becomes an infinite loop. i'll say while (onGoingStatus == "yes")"
+
+**Professor's Feedback & Socratic Question (Case-Insensitivity):**
+You've got it! `while (onGoingStatus == "yes")` is precisely the condition you need. Now, to make the comparison robust (case-insensitive), how might you compare `onGoingStatus` to "yes" so that it works whether the user types "yes", "YES", or "Yes"? (Hint: C# strings have helpful methods for this!)
+
+**Student's Code (Near-Final Attempt):**
+```csharp
+string onGoingStatus;
+do
+{
+    Console.WriteLine("This will always run at least once");
+    Console.Write("Enter \'yes\' to continue or \'no\' to stop: ");
+    onGoingStatus = Console.ReadLine();
+}
+while (onGoingStatus == "yes");
+Console.WriteLine("The user has ended the loop");
+```
+Explanation: "I couldn't get around fixing the case insensitivity part"
+
+**Professor's Guidance (String Immutability):**
+You're very close! Using `ToLower()` is the right approach. However, string methods like `ToLower()` don't change the original string; they *return* a new, modified string. How can you use that *returned value* to make your comparison work?
+
+**Student's Final Corrected Code for Task 1.7:**
+```csharp
+string onGoingStatus;
+string lower;
+do
+{
+    Console.WriteLine("This will always run at least once");
+    Console.Write("Enter \'yes\' to continue or \'no\' to stop: ");
+    onGoingStatus = Console.ReadLine();
+    lower = onGoingStatus.ToLower();
+}
+while (lower == "yes");
+Console.WriteLine("The user has ended the loop");
+```
+
+**Professor's Feedback & Next Socratic Question (Switch Statements):**
+Excellent! This is a perfect implementation of the `do-while` loop with case-insensitive input handling. You've successfully completed **Coding Task 1.7**!
+
+You've now mastered `while`, `for`, and `do-while` loops.
+
+Now, let's circle back to decision-making structures. Earlier, you used an `if-else if-else` chain. What if you had many more specific values to check (e.g., "Alice", "Bob", "Charlie", "David", "Eve")? While an `if-else if-else` chain would work, it can become long.
+
+Is there another control flow statement in C# that you think might be designed for handling multiple distinct choices based on the value of a single variable, potentially making the code cleaner than a long `if-else if-else` chain?
 
 ---
 **Note:** Auto-upload agent is active and monitoring this file.
