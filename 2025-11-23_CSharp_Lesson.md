@@ -108,3 +108,54 @@ Consider two `int` variables, say `x` and `y`. If you wanted to perform basic ar
     *   Is `a` less than or equal to `b`?
 
 Remember to use `Console.WriteLine()` to display each result, clearly labeling what you are printing. For example: `Console.WriteLine($"a + b = {a + b}");`
+
+**Student's Code for Task 1.2 & Implicit Answer to Socratic Question:**
+```csharp
+int x = 2;
+int y = 4;
+Console.WriteLine("+, -, *, /"); // This line is just printing the string, not performing operations
+Console.WriteLine(x == y); // False
+Console.WriteLine(x > y);  // False
+
+int a = 5;
+int b = 10;
+
+Console.WriteLine(a + b);
+Console.WriteLine(a - b);
+Console.WriteLine(a * b);
+Console.WriteLine(a / b);
+Console.WriteLine(a == b);
+Console.WriteLine(a != b);
+Console.WriteLine(a > b);
+Console.WriteLine(a <= b);
+```
+
+**Professor's Feedback & Socratic Question (Exploring Division):**
+Your execution of Coding Task 1.2 is spot on! You've correctly identified and used the standard arithmetic operators (`+`, `-`, `*`, `/`) which behave exactly as they do in mathematics for integer types. You also correctly applied the comparison operators (`==`, `!=`, `>`, `<=`) and observed that they produce `bool` (boolean) values (`true` or `false`). This is crucial for controlling the flow of a program, which we'll get to soon!
+
+There's one subtle point in your arithmetic operations I'd like us to consider:
+
+*   `Console.WriteLine(a / b); // 0 (integer division)`
+
+When you divide `int a = 5` by `int b = 10`, the result is `0`. Why do you think C# gives `0` as the answer here, instead of, say, `0.5`? What does this tell us about the `/` operator when both operands are integers?
+
+**Coding Task 1.3: Exploring Division**
+
+1.  In your `Program.cs` file, modify your division example:
+    *   Change either `a` or `b` (or both) to a floating-point type, such as `double`. For example:
+        ```csharp
+        double aDouble = 5;
+        int bInt = 10;
+        Console.WriteLine(aDouble / bInt);
+        ```
+    *   What result do you get now?
+    *   What happens if you try to explicitly *cast* one of the integers to a `double` before performing the division, but keep the other as an `int`?
+        ```csharp
+        int a = 5;
+        int b = 10;
+        Console.WriteLine((double)a / b); // Casting 'a' to double
+        ```
+
+This task will help us understand **type conversion** and its importance in arithmetic operations.
+
+Once you've explored this and formed your thoughts on why `a / b` (with integers) results in `0`, share your insights and the code you used for Task 1.3.
