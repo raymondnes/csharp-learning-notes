@@ -20,13 +20,11 @@ This brings us to our next question: If we want to store a piece of text like "H
 
 **Student's Response 2:** "hello world" would be a string type while 5 will be an integer type
 
-**Professor's Response & Question 3:** Excellent! You've precisely identified the fundamental types C# uses for those values: string for "hello world" and int for 5. This shows a strong intuitive grasp of how data is categorized in programming.
+**Professor's Response & Coding Task 1.1:** Excellent! You've precisely identified the fundamental types C# uses for those values: string for "hello world" and int for 5. This shows a strong intuitive grasp of how data is categorized in programming.
 
 Now, let's deepen our understanding of these.
 
 When you declare a string or an int in C#, you are essentially telling the compiler, "This variable will hold this *kind* of data."
-
-Consider this: Why is it beneficial for a programming language like C# to know in advance that "hello world" is a string and 5 is an int? What problems might arise if the language didn't enforce these types, or treated all values generically?
 
 **Coding Task 1.1: Declare and Initialize**
 
@@ -35,3 +33,29 @@ Consider this: Why is it beneficial for a programming language like C# to know i
 3.  Inside the Main method, declare a variable of type string and assign it the value "Hello, C# World!".
 4.  Declare another variable of type int and assign it your favorite whole number.
 5.  Use Console.WriteLine() to display both the string and the integer variables on separate lines.
+
+**Student's Code & Explanation for Task 1.1:**
+`csharp
+string welcome = "Hello World!";
+int num = 4;
+Console.WriteLine(welcome);
+Console.WriteLine(num);
+`
+Explanation: "It works because the variable welcome has the correct type syntax which is string and the num 4 has integer as its type. Console.WriteLine is an object that displays both variables stored values"
+
+**Professor's Follow-up Questions:**
+Your code is perfectly correct for the task! You've successfully declared and initialized both a string and an int variable, and then used Console.WriteLine() to display their values.
+
+Now, let's go back to our earlier Socratic question:
+
+**"Why is it beneficial for a programming language like C# to know in advance that 'hello world' is a string and 5 is an int? What problems might arise if the language didn't enforce these types, or treated all values generically?"**
+
+You mentioned "the correct type syntax" and that Console.WriteLine "displays both variables stored values." This touches on the *benefit* of having types.
+
+Consider this:
+1.  **"Correct Type Syntax":** What happens if you try to assign 4 (an int) to a string variable, or "Hello" (a string) to an int variable without any special conversion? What kind of reaction would C# give you, and why?
+2.  **Operations:** If C# *didn't* know the type of 
+um (which is int), how might it handle an operation like 
+um + 2? Or if it didn't know welcome was a string, how would it handle welcome + "!"? What's the difference in how + works for numbers versus text, and how do types help C# understand which operation to perform?
+
+Think about these questions, and when you're ready, share your insights. We're building a strong foundation here.
