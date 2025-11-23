@@ -250,8 +250,87 @@ This task will help us differentiate between multiple, specific conditions using
 When you're ready, share your thoughts on the Socratic question and your code for Task 1.5.
 
 ---
-**End of Session - To be continued later today**
-This marks the end of our current session. We will resume later today to continue with **Coding Task 1.5: Refined Conditional Logic (if-else if-else)** and the Socratic question about using `else if` for distinct conditions.
+**Session Resumed**
+
+**Professor's Follow-up:** We are resuming our session to complete Coding Task 1.5.
+
+**Student's Code & Explanation for Task 1.5:**
+```csharp
+Console.Write("Please, Enter your name: ");
+string userName = Console.ReadLine();
+
+if (userName == "Alice")
+    Console.WriteLine("Hello, Alice!");
+else if (userName == "Bob")
+    Console.WriteLine("Hi, Bob!");
+else
+    Console.WriteLine("Hello, stranger!");
+```
+Explanation: "I had misread the instructions earlier, thanks for prompting me, I think the code is fine now"
+
+**Professor's Feedback & Next Socratic Question (Loops):**
+Fantastic! This is exactly what I was looking for. You've perfectly used the `else if` construct to handle the distinct conditions for "Alice" and "Bob", and then the final `else` for everyone else. This demonstrates a clear understanding of how to sequence conditional logic to cover multiple possibilities.
+
+You've successfully completed **Coding Task 1.5**!
+
+Now that we've explored how programs make decisions, let's turn our attention to how they perform repetitive actions. Often, a program needs to do something multiple times – perhaps count from 1 to 10, process every item in a list, or, in our number guessing game, allow the user to guess repeatedly until they get it right.
+
+**Socratic Question:**
+
+In your number guessing game, you've already used a `while` loop. What if you wanted to perform an action a *specific number of times*, say, print "Hello" ten times? Or what if you wanted to iterate through a sequence of numbers from 0 to 9? What kind of control flow structure do you think C# provides for such scenarios, and how might it differ from a `while` loop?
+
+**Coding Task 1.6: Introduction to `for` loops**
+
+1.  In your `Program.cs` file, write a `for` loop that prints the numbers from 1 to 5, inclusive.
+2.  Also, write a `for` loop that prints "C# is fun!" three times.
+
+**Student's Code & Explanation for Task 1.6:**
+```csharp
+for (int i = 0; i < 10; i++)
+    Console.WriteLine("Hello");
+
+for (int j = 0; j <= 9; j++)
+    Console.WriteLine(j);
+
+// while loop takes a different approach with boolean expression checks and execution
+
+// Coding task 1.6
+for (int p = 1; p <= 5; p++)
+    Console.WriteLine(p);
+
+for (int q = 0; q < 3; q++)
+    Console.WriteLine("C# is fun");
+```
+
+**Professor's Feedback & Next Socratic Question (do-while loops):**
+Excellent! Your `for` loops for printing numbers 1 to 5 and "C# is fun" three times are perfectly correct. You've clearly grasped the syntax and purpose of initialization, condition, and iteration in a `for` loop.
+
+You also noted that `while` loops "take a different approach with boolean expression checks and execution." That's a very insightful observation!
+
+The key difference often lies in *when* the condition is checked and *how* the loop is structured for iteration:
+
+*   **`for` loops** are typically used when you know (or can easily calculate) how many times you want to iterate, or when you have a clear counter variable that progresses through a known range. The initialization, condition, and increment/decrement are all part of the loop's header, making it very concise for such scenarios.
+*   **`while` loops** are more general and are best used when the number of iterations isn't known beforehand, and the loop continues as long as a certain condition remains true (like in your guessing game, where the user guesses until they are correct). The iteration logic (e.g., changing the value that affects the condition) is handled *inside* the loop body.
+
+There's one more common type of loop in C# that's a close relative to the `while` loop: the **`do-while` loop**.
+
+**Socratic Question:**
+
+Imagine you have a menu in a console application, and you *always* want to display the menu at least once, even if the user immediately chooses to exit. What kind of loop structure would guarantee that the menu is shown at least one time before checking any exit condition? How does this differ from the standard `while` loop you used in the guessing game?
+
+**Coding Task 1.7: Introduction to `do-while` loops**
+
+1.  Write a `do-while` loop that:
+    *   Prints a message like "This will always run at least once."
+    *   Asks the user to enter 'yes' to continue or 'no' to stop.
+    *   Continues looping as long as the user enters 'yes' (case-insensitive).
+2.  Test your code to ensure it runs at least once, even if you type 'no' immediately.
+
+This task will help you understand a scenario where a `do-while` loop is particularly useful.
 
 ---
-**Test Note:** Auto-upload agent is active and monitoring this file.
+**End of Session - To be continued**
+This marks the end of our current session. We will resume later to continue with **Coding Task 1.7: Introduction to `do-while` loops**.
+
+---
+**Note:** Auto-upload agent is active and monitoring this file.
