@@ -12,9 +12,6 @@ AUTO_UPLOAD_README.md
 # Ignore Claude Code settings
 .claude/
 
-# Ignore solution and project practice files
-CSharp_Task_Solutions.md
-
 # Ignore practice projects (students can recreate these)
 Helloworld/
 VariablesDemo/
