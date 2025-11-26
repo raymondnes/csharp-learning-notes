@@ -632,3 +632,79 @@ The student has completed the Socratic dialogue for Day 2: Variables and Data Ty
 - camelCase naming conventions
 
 Test_Agent, please begin the 9-level progressive assessment.
+
+---
+
+## **Level 1: Foundation (Trivial)**
+
+**Challenge:**
+Create a console application that declares three variables and displays them:
+- An `int` variable called `score` with value `100`
+- A `string` variable called `playerName` with value `"Alex"`
+- A `bool` variable called `hasWon` with value `true`
+
+Display each variable on a separate line.
+
+**Requirements:**
+1. Use explicit type declarations (not `var`)
+2. Use proper camelCase naming
+3. Display each variable using `Console.WriteLine()`
+
+**Expected Output:**
+```
+100
+Alex
+True
+```
+
+**Student's Code:**
+```csharp
+namespace VariablesDemo
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int score = 100;
+            string playerName = "Alex";
+            bool hasWon = true;
+
+            Console.WriteLine(score);
+            Console.WriteLine(playerName);
+            Console.WriteLine(hasWon);
+            Console.ReadLine();
+        }
+    }
+}
+```
+
+**Test_Agent Evaluation:**
+
+✓ Correct variable declarations with explicit types
+✓ Proper camelCase naming (`score`, `playerName`, `hasWon`)
+✓ Correct values assigned
+✓ Output matches expected format
+✓ Valid C# syntax
+
+**LEVEL 1: PASS**
+
+---
+
+## **Level 2: Foundation (Trivial)**
+
+**Challenge:**
+Modify your program to use **string interpolation** to display the variables with descriptive labels.
+
+**Expected Output:**
+```
+Score: 100
+Player Name: Alex
+Has Won: True
+```
+
+**Requirements:**
+1. Keep the same three variables from Level 1
+2. Use string interpolation (`$"..."`) for all output
+3. Match the exact output format shown above
+
+Please share your updated code.
