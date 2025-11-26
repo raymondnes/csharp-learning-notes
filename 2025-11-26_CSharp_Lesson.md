@@ -803,4 +803,64 @@ Display all four variables using string interpolation with appropriate labels.
 3. Use string interpolation to display each variable with a label
 4. The output should clearly show all four values
 
-Please share your code and the output.
+**Student's Code:**
+```csharp
+namespace VariablesDemo
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            var userAge = 42;
+            var programName = "CSharp";
+            var valueOfPi = 3.14;
+            var isUserLoggedIn = true;
+
+            Console.WriteLine($"Users Age: {userAge}");
+            Console.WriteLine($"Program Name: {programName}");
+            Console.WriteLine($"Value of Pi: {valueOfPi}");
+            Console.WriteLine($"Is User Logged In: {isUserLoggedIn}");
+            Console.ReadLine();
+        }
+    }
+}
+```
+
+**Test_Agent Evaluation:**
+
+✓ Uses `var` for all four variable declarations
+✓ Compiler correctly infers types (int, string, double, bool)
+✓ Excellent camelCase naming with meaningful names
+✓ String interpolation used correctly for all output
+✓ All four values displayed with clear labels
+
+**Note:** Small typo in output label "Users Age" should be "User's Age" but this doesn't affect the functionality - excellent work overall!
+
+**LEVEL 4: PASS**
+
+---
+
+## **Level 5: Integration (Moderate)**
+
+**Challenge:**
+Create a program that demonstrates **multiple reassignments** of the same variable. Declare an `int` variable called `counter`, initialize it to `0`, then:
+1. Display the initial value
+2. Add 5 to it and display
+3. Add 10 more to it and display
+4. Multiply it by 2 and display
+
+**Expected Output:**
+```
+Initial Counter: 0
+After adding 5: 5
+After adding 10: 15
+After multiplying by 2: 30
+```
+
+**Requirements:**
+1. Use only ONE variable called `counter`
+2. Perform the calculations by reassigning the variable
+3. Use string interpolation for all output
+4. Match the exact output format
+
+Please share your code.
