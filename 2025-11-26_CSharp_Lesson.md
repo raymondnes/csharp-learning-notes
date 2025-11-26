@@ -1387,3 +1387,79 @@ Your phrase "C# holds you to your word" perfectly captures the essence of static
 Rest well - you've earned it after mastering variables, data types, string interpolation, type inference, and completing 9 rigorous challenges!
 
 **End of Day 2 Session**
+
+---
+
+## **Student's Follow-Up Question**
+
+**Student's Question:**
+Quick question, before answering, let me know if this is scheduled for a later topic. So instead of using space bar for spacing, is there a workaround that can do the same via code?
+
+**Professor's Response:**
+Excellent question! This shows you're thinking like a programmer - "there must be a better way than manually counting spaces!"
+
+**Short answer:** YES! There are multiple ways to handle spacing programmatically in C#, and while we haven't formally covered them yet, I'm happy to show you now since you asked.
+
+**Here are the solutions:**
+
+### **1. String Padding Methods** (Most Relevant to Your Question)
+
+C# strings have built-in methods for adding padding:
+
+```csharp
+string text = "Hello";
+string paddedRight = text.PadRight(20);     // "Hello               " (adds spaces to the right)
+string paddedLeft = text.PadLeft(20);       // "               Hello" (adds spaces to the left)
+```
+
+For your temperature monitor, you could do:
+
+```csharp
+string line = "Fahrenheit: 98.6°F";
+Console.WriteLine($"║ {line.PadRight(30)} ║");  // Pads to 30 chars, then adds closing ║
+```
+
+### **2. String Alignment in Interpolation**
+
+You can specify alignment directly in string interpolation:
+
+```csharp
+string item = "Fahrenheit:";
+double value = 98.6;
+Console.WriteLine($"║ {item,-15}{value}°F{"",-15} ║");
+// The -15 means left-align in a 15-character field
+// Positive number (15) would right-align
+```
+
+### **3. Creating Repeated Characters**
+
+```csharp
+string spaces = new string(' ', 20);  // Creates a string of 20 spaces
+string dashes = new string('-', 30);  // Creates a string of 30 dashes
+Console.WriteLine($"║ Fahrenheit: 98.6°F{spaces.Substring(0, 13)} ║");
+```
+
+### **When Will We Cover This?**
+
+These concepts touch on several topics:
+- **String methods** (`.PadLeft()`, `.PadRight()`) - We'll cover in depth when we discuss the String class (Week 2-3)
+- **String alignment in interpolation** - This is an advanced feature we'll explore with formatting
+- **The `new` keyword** - We'll cover when we discuss objects and classes (Week 2)
+
+**For now, here's a practical example** using `PadRight()` to fix your Level 9 code more elegantly:
+
+```csharp
+Console.WriteLine($"║ {"Fahrenheit: " + fahrenheit + "°F",-32} ║");
+Console.WriteLine($"║ {"Celsius: " + Math.Round(celsius) + "°C",-32} ║");
+Console.WriteLine($"║ {"Kelvin: " + kelvin:F2 + "K",-32} ║");
+```
+
+The `-32` means "left-align this content in a 32-character field" (since we need 2 chars for `║ ` and ` ║`).
+
+**My Recommendation:**
+
+For now, understanding that these techniques exist is great! But don't worry about memorizing them yet. When we get to strings and formatting in a couple of weeks, we'll explore all these methods in detail.
+
+Your instinct to ask "is there a programmatic way?" is exactly the right mindset. Good programmers always look for ways to make the computer do the repetitive work!
+
+Does this answer your question?
