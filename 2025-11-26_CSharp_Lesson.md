@@ -863,4 +863,71 @@ After multiplying by 2: 30
 3. Use string interpolation for all output
 4. Match the exact output format
 
+**Student's Code:**
+```csharp
+namespace VariablesDemo
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int counter = 0;
+            Console.WriteLine($"Initial Counter: {counter}");
+            counter += 5;
+            Console.WriteLine($"After adding 5: {counter}");
+            counter += 10;
+            Console.WriteLine($"After adding 10: {counter}");
+            counter *= 2;
+            Console.WriteLine($"After multiplying by 2: {counter}");
+
+            Console.ReadLine();
+        }
+    }
+}
+```
+
+**Test_Agent Evaluation:**
+
+✓ Uses only one variable (`counter`)
+✓ Multiple reassignments demonstrated correctly
+✓ Uses compound assignment operators (`+=`, `*=`) - excellent!
+✓ String interpolation used for all output
+✓ Output matches expected format exactly
+✓ Demonstrates understanding of cumulative variable changes
+
+**Bonus:** You used compound assignment operators (`+=`, `*=`) which is the idiomatic C# way to modify variables. Great programming style!
+
+**LEVEL 5: PASS**
+
+---
+
+## **Level 6: Integration (Moderate)**
+
+**Challenge:**
+Create a program that builds a person's profile using multiple variables and displays it in a formatted way:
+
+**Variables needed:**
+- `firstName` (string): "Jordan"
+- `lastName` (string): "Smith"
+- `age` (int): 28
+- `height` (double): 5.9
+- `isEmployed` (bool): true
+
+**Expected Output:**
+```
+===== PROFILE =====
+Name: Jordan Smith
+Age: 28 years
+Height: 5.9 feet
+Employed: True
+===================
+```
+
+**Requirements:**
+1. Use explicit type declarations (not `var`)
+2. Use proper camelCase naming for all variables
+3. Use string interpolation to build the "Name" line (combine firstName and lastName)
+4. Match the exact formatting including the border lines
+5. All border lines must be exactly 19 characters wide
+
 Please share your code.
