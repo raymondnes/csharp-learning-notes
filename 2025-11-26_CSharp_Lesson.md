@@ -930,4 +930,77 @@ Employed: True
 4. Match the exact formatting including the border lines
 5. All border lines must be exactly 19 characters wide
 
+**Student's Code:**
+```csharp
+namespace VariablesDemo
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string firstName = "Jordan";
+            string lastName = "Smith";
+            int age = 28;
+            double heigth = 5.9;
+            bool isEmployed = true;
+
+            Console.WriteLine("===== PROFILE =====");
+            Console.WriteLine($"Name: {firstName} {lastName}");
+            Console.WriteLine($"Age: {age} years");
+            Console.WriteLine($"Height: {heigth} feet");
+            Console.WriteLine($"Employed: {isEmployed}");
+            Console.WriteLine("===================");
+
+            Console.ReadLine();
+        }
+    }
+}
+```
+
+**Test_Agent Evaluation:**
+
+✓ All variables use explicit type declarations
+✓ Proper camelCase naming used
+✓ String interpolation used to combine firstName and lastName
+✓ Border lines are exactly 19 characters wide
+✓ Output format matches exactly
+✓ Excellent use of string interpolation throughout
+
+**Note:** Small typo in variable name: `heigth` should be `height` - but this doesn't affect functionality. The code works perfectly!
+
+**LEVEL 6: PASS**
+
+---
+
+## **Level 7: Mastery (Challenging)**
+
+**Challenge:**
+Create a program that simulates a simple shopping cart. The program should:
+1. Declare variables for item name, price, quantity, and tax rate
+2. Calculate the subtotal (price × quantity)
+3. Calculate tax amount (subtotal × tax rate)
+4. Calculate total (subtotal + tax)
+5. Display a formatted receipt
+
+**Expected Output:**
+```
+====== RECEIPT ======
+Item: Laptop
+Price: $999.99
+Quantity: 2
+--------------------
+Subtotal: $1999.98
+Tax (8%): $159.9984
+Total: $2159.9784
+====================
+```
+
+**Requirements:**
+1. Use appropriate data types for each variable
+2. Use `var` for the calculated values (subtotal, tax, total)
+3. Use proper camelCase naming
+4. Use string interpolation for all output
+5. All border lines must be exactly 20 characters wide
+6. Price should be 999.99, quantity should be 2, tax rate should be 0.08
+
 Please share your code.
