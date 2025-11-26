@@ -1,0 +1,34 @@
+# Ignore agent definition files
+csharp_prof.md
+Test_Agent.md
+GEMINI.md
+CLAUDE.md
+
+# Ignore automation scripts
+auto_upload.ps1
+start_auto_upload.bat
+AUTO_UPLOAD_README.md
+
+# Ignore Claude Code settings
+.claude/
+
+# Ignore solution and project practice files
+CSharp_Task_Solutions.md
+
+# Ignore practice projects (students can recreate these)
+Helloworld/
+VariablesDemo/
+GreetingApp/
+
+# Visual Studio / .NET build outputs
+bin/
+obj/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.csproj.user
+
+# Keep only daily lesson notes
+# Pattern: YYYY-MM-DD_CSharp_Lesson.md files are tracked
+# Everything else above is ignored
