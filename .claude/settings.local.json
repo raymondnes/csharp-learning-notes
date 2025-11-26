@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git --version:*)",
+      "Bash(gh:*)",
+      "Bash(winget install:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git remote add:*)",
+      "Bash(git branch:*)",
+      "Bash(git push:*)",
+      "Bash(powershell.exe -ExecutionPolicy Bypass -Command \"cd ''C:\\Users\\Ray\\Desktop\\Agents\\csharp_teacher''; Write-Host ''Testing auto-upload script...''; Get-Content auto_upload.ps1 | Select-Object -First 5; Write-Host ''''; Write-Host ''Script file exists and is readable!'' -ForegroundColor Green\")",
+      "Bash(cmd.exe /c \"cd /d C:\\Users\\Ray\\Desktop\\Agents\\csharp_teacher && start_auto_upload.bat\")",
+      "Bash(powershell.exe -ExecutionPolicy Bypass -Command \"cd ''C:\\Users\\Ray\\Desktop\\Agents\\csharp_teacher''; & ''.\\auto_upload.ps1''; exit\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
