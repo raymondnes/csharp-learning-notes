@@ -707,4 +707,100 @@ Has Won: True
 2. Use string interpolation (`$"..."`) for all output
 3. Match the exact output format shown above
 
-Please share your updated code.
+**Student's Code:**
+```csharp
+namespace VariablesDemo
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int score = 100;
+            string playerName = "Alex";
+            bool hasWon = true;
+
+            Console.WriteLine($"Score: {score}");
+            Console.WriteLine($"Player Name: {playerName}");
+            Console.WriteLine($"Has Won: {hasWon}");
+            Console.ReadLine();
+        }
+    }
+}
+```
+
+**Test_Agent Evaluation:**
+
+✓ Uses string interpolation (`$"..."`) for all output
+✓ Variables embedded correctly in curly braces
+✓ Output format matches exactly
+✓ All three variables displayed with proper labels
+
+**LEVEL 2: PASS**
+
+---
+
+## **Level 3: Application (Easy)**
+
+**Challenge:**
+Create a program that declares a `double` variable called `temperature` with the value `98.6`, then displays it. After displaying it, **reassign** the temperature to `100.4` and display it again.
+
+**Expected Output:**
+```
+Current Temperature: 98.6
+Updated Temperature: 100.4
+```
+
+**Requirements:**
+1. Use explicit type declaration for the variable
+2. Use string interpolation for output
+3. Demonstrate variable reassignment (change the value after initial declaration)
+4. Use proper camelCase naming
+
+**Student's Code:**
+```csharp
+namespace VariablesDemo
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            double temperature = 98.6;
+            Console.WriteLine($"Current Temperature: {temperature}");
+            temperature = 100.4;
+            Console.WriteLine($"Updated Temperature: {temperature}");
+            Console.ReadLine();
+        }
+    }
+}
+```
+
+**Test_Agent Evaluation:**
+
+✓ Explicit type declaration (`double temperature`)
+✓ String interpolation used correctly
+✓ Variable reassignment demonstrated (no type on second assignment)
+✓ Proper camelCase naming (`temperature`)
+✓ Output matches expected format exactly
+
+**LEVEL 3: PASS**
+
+---
+
+## **Level 4: Application (Easy)**
+
+**Challenge:**
+Create a program using **type inference with `var`** to declare four variables:
+- A variable with value `42` (integer)
+- A variable with value `"CSharp"` (string)
+- A variable with value `3.14` (double)
+- A variable with value `false` (boolean)
+
+Display all four variables using string interpolation with appropriate labels.
+
+**Requirements:**
+1. Use `var` for ALL variable declarations
+2. Use proper camelCase naming (choose meaningful names)
+3. Use string interpolation to display each variable with a label
+4. The output should clearly show all four values
+
+Please share your code and the output.
