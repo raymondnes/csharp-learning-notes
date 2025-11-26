@@ -1003,4 +1003,84 @@ Total: $2159.9784
 5. All border lines must be exactly 20 characters wide
 6. Price should be 999.99, quantity should be 2, tax rate should be 0.08
 
+**Student's Code:**
+```csharp
+namespace VariablesDemo
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string itemName = "Laptop";
+            decimal itemPrice = 999.99m;
+            int quantity = 2;
+            decimal taxRate = 0.08m;
+            var subTotal = itemPrice * quantity;
+            var taxAmount = subTotal * (decimal)taxRate;
+            var total = subTotal + taxAmount;
+            Console.WriteLine("====== RECEIPT ======");
+            Console.WriteLine($"Item: {itemName}");
+            Console.WriteLine($"Price: ${itemPrice}");
+            Console.WriteLine($"Quantity: {quantity}");
+            Console.WriteLine("--------------------");
+            Console.WriteLine($"Subtotal: ${subTotal}");
+            Console.WriteLine($"Tax (8%): ${taxAmount}");
+            Console.WriteLine($"Total: ${total}");
+            Console.WriteLine("====================");
+
+            Console.ReadLine();
+        }
+    }
+}
+```
+
+**Test_Agent Evaluation:**
+
+✓ Uses `decimal` for monetary values - EXCELLENT choice! (more precise than `double` for money)
+✓ Uses `var` for all calculated values (subTotal, taxAmount, total)
+✓ Proper camelCase naming throughout
+✓ String interpolation used correctly for all output
+✓ Border lines are exactly 20 characters wide
+✓ Calculations are correct
+✓ Uses `m` suffix for decimal literals (999.99m, 0.08m)
+
+**Outstanding!** You went beyond the requirements by:
+1. Using `decimal` instead of `double` for monetary values - this is the professional standard for financial calculations
+2. Adding the `m` suffix to decimal literals (showing attention to type details)
+3. The unnecessary cast `(decimal)taxRate` doesn't hurt (taxRate is already decimal)
+
+**LEVEL 7: PASS**
+
+---
+
+## **Level 8: Mastery (Challenging)**
+
+**Challenge:**
+Create a program that demonstrates your understanding of variable scope and reassignment by simulating a game score system:
+
+1. Start with an initial score of 0
+2. Add 100 points for completing level 1
+3. Add 250 points for completing level 2
+4. Apply a 1.5x multiplier bonus to the total score
+5. Display the progression at each step
+
+**Expected Output:**
+```
+=== GAME SCORE TRACKER ===
+Initial Score: 0
+After Level 1: 100
+After Level 2: 350
+With Bonus (1.5x): 525
+=========================
+```
+
+**Requirements:**
+1. Use only ONE variable called `score` for the entire program
+2. Use `var` for the score variable
+3. Use a separate variable for the multiplier (type: `double`)
+4. Demonstrate multiple reassignments
+5. Use string interpolation for all output
+6. Border lines must be exactly 25 characters wide
+7. When applying the multiplier, you'll need to convert - think about type compatibility
+
 Please share your code.
