@@ -1083,4 +1083,88 @@ With Bonus (1.5x): 525
 6. Border lines must be exactly 25 characters wide
 7. When applying the multiplier, you'll need to convert - think about type compatibility
 
+**Student's Code:**
+```csharp
+namespace VariablesDemo
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            var score = 0;
+            Console.WriteLine("=== GAME SCORE TRACKER ===");
+            Console.WriteLine($"Initial Score: {score}");
+            score += 100;
+            Console.WriteLine($"After Level 1: {score}");
+            score += 250;
+            Console.WriteLine($"After Level 2: {score}");
+            double bonusMultiplier = 1.5;
+            score = (int)(score * bonusMultiplier);
+            Console.WriteLine($"With Bonus (1.5x): {score}");
+            Console.WriteLine("=========================");
+            Console.ReadLine();
+        }
+    }
+}
+```
+
+**Test_Agent Evaluation:**
+
+✓ Uses only ONE variable called `score` throughout
+✓ Uses `var` for score variable (compiler infers `int`)
+✓ Uses `double` for bonusMultiplier
+✓ Multiple reassignments demonstrated (+=, =)
+✓ String interpolation used for all output
+✓ Border lines are exactly 25 characters wide
+✓ Type conversion handled correctly with `(int)` cast
+✓ Output matches expected format exactly
+✓ Excellent understanding of type compatibility (int × double requires casting back to int)
+
+**Exceptional work!** You demonstrated:
+- Understanding that `score * bonusMultiplier` produces a `double` (350 × 1.5 = 525.0)
+- Knowledge of explicit casting `(int)` to convert back to integer type
+- Proper use of compound assignment operators
+
+**LEVEL 8: PASS**
+
+---
+
+## **Level 9: Expert (Very Challenging)**
+
+**Challenge:**
+Create a comprehensive program that simulates a temperature monitoring system. This final challenge tests all your variable skills:
+
+1. Declare variables for current temperature in Fahrenheit
+2. Convert to Celsius using the formula: C = (F - 32) × 5/9
+3. Convert to Kelvin using the formula: K = C + 273.15
+4. Determine if the temperature is above freezing (Celsius > 0)
+5. Display all information in a formatted report
+
+**Expected Output:**
+```
+╔════════════════════════════════╗
+║   TEMPERATURE MONITOR v1.0     ║
+╠════════════════════════════════╣
+║ Fahrenheit: 98.6°F             ║
+║ Celsius: 37°C                  ║
+║ Kelvin: 310.15K                ║
+║ Above Freezing: True           ║
+╚════════════════════════════════╝
+```
+
+**Requirements:**
+1. Use `double` for Fahrenheit temperature (initialize to 98.6)
+2. Use `var` for calculated values (Celsius and Kelvin)
+3. Use `bool` for the freezing check
+4. Use proper camelCase naming for all variables
+5. Use string interpolation for all output
+6. All border lines must be exactly 34 characters wide
+7. Match the exact spacing inside the boxes (notice the padding)
+8. Round Celsius to whole number (no decimals in display)
+9. Display Kelvin with 2 decimal places
+
+**Hints:**
+- For integer division in the formula, use `5.0/9.0` instead of `5/9`
+- The spacing requires careful attention - each content line has specific padding
+
 Please share your code.
