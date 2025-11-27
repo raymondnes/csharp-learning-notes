@@ -890,3 +890,50 @@ x * y / z = 25
 ```
 
 Show me your code and the output.
+
+**Student's Code:**
+```csharp
+int x = 10;
+int y = 5;
+int z = 2;
+
+Console.WriteLine($"x = {x}, y = {y}, z = {z}");
+Console.WriteLine($"x + y * z = {x + y * z}");
+Console.WriteLine($"(x + y) * z = {(x + y) * z}");
+Console.WriteLine($"x - y + z = {x - y + z}");
+Console.WriteLine($"x * y / z = {x * y / z}");
+```
+
+**Test_Agent Evaluation:**
+
+✓ Correct variable declarations
+✓ All expressions evaluated correctly
+✓ `x + y * z = 20` (multiplication before addition: 10 + (5 * 2) = 10 + 10 = 20)
+✓ `(x + y) * z = 30` (parentheses override precedence: (10 + 5) * 2 = 15 * 2 = 30)
+✓ `x - y + z = 7` (left-to-right evaluation: 10 - 5 + 2 = 5 + 2 = 7)
+✓ `x * y / z = 25` (left-to-right for equal precedence: 10 * 5 / 2 = 50 / 2 = 25)
+✓ String interpolation used correctly
+✓ Output matches expected format exactly
+
+**LEVEL 2: PASS**
+
+---
+
+## **Level 3: Application (Easy)**
+
+**Challenge:**
+Create a program that demonstrates the difference between integer division and floating-point division.
+
+**Requirements:**
+1. Declare two `int` variables: `num1 = 17` and `num2 = 4`
+2. Perform integer division and display the result
+3. Perform the same division using `double` variables and display the result
+4. Use string interpolation for all output
+
+**Expected Output:**
+```
+Integer Division: 17 / 4 = 4
+Floating-Point Division: 17.0 / 4.0 = 4.25
+```
+
+Show me your code and the output.
