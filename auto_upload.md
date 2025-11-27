@@ -304,13 +304,13 @@ Great experimentation! You've discovered something important, but let me clarify
 
 Here's what's actually happening step-by-step:
 
-**Case 1:** `double result = 10 / 3;`
+**Case 1:** `double result = 10 / 3;
 1. C# evaluates `10 / 3` first (both are `int`)
 2. Result of division: `3` (integer division, truncated)
 3. Then `3` is converted to `3.0` and stored in the `double` variable
 4. Final result: `3.0` (but the decimal part was already lost!)
 
-**Case 2:** `double result = 10.0 / 3.0;`
+**Case 2:** `double result = 10.0 / 3.0;
 1. C# evaluates `10.0 / 3.0` (both are `double`)
 2. Result of division: `3.333333...` (double division, preserves decimals)
 3. Stored directly in the `double` variable
@@ -442,4 +442,48 @@ Console.WriteLine($"x <= y: {x <= y}");
 
 Run your program and show me the output.
 
+**Student's Response:**
+```
+--- Comparison Operators ---
+x = 10, y = 5
+x == y: False
+x != y: True
+x > y: True
+x < y: False
+x >= y: True
+x <= y: False
+```
 
+**Professor's Response:**
+Perfect! All the comparison operators are working correctly. Let's analyze what we're seeing:
+
+- `x == y: False` → 10 is not equal to 5
+- `x != y: True` → 10 is not equal to 5 (opposite of ==)
+- `x > y: True` → 10 is greater than 5
+- `x < y: False` → 10 is not less than 5
+- `x >= y: True` → 10 is greater than or equal to 5
+- `x <= y: False` → 10 is not less than or equal to 5
+
+Notice that all these expressions return **boolean values** (`True` or `False`). This is essential for control flow - you'll use these operators extensively when making decisions in your programs (which we'll cover on Day 6 with `if-else` statements).
+
+Now let's explore the final category of operators: **logical operators**.
+
+---
+
+## **Logical Operators**
+
+Logical operators let you combine multiple boolean expressions. They're essential for creating complex conditions.
+
+| Operator | Name        | Description                          | Example           | Result  |
+|----------|-------------|--------------------------------------|-------------------|---------|
+| `&&`     | AND         | True if **both** conditions are true | `true && false`   | `false` |
+| `||`     | OR          | True if **either** condition is true | `true || false` | `true`  |
+| `!`      | NOT         | Inverts the boolean value            | `!true`           | `false` |
+
+**Professor's Socratic Question (Understanding AND):**
+
+The `&&` (AND) operator returns `true` only if **both** sides are true.
+
+Think about a real-world scenario: "You can watch a movie if you've finished your homework AND it's after 8 PM."
+
+If you've finished your homework but it's only 6 PM, can you watch the movie? Why or why not?
