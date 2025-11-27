@@ -42,7 +42,7 @@ namespace GreetingApp
 ```csharp
 Console.WriteLine("Learning C# is fun");
 Console.WriteLine("Day 1 complete");
-Console.WriteLine("Let\'s continue");
+Console.WriteLine("Let's continue");
 ```
 
 **Explanation:**
@@ -536,3 +536,106 @@ Console.WriteLine($"╚═══════════════════
 ---
 
 *This document is automatically updated after each Test_Agent assessment session.*
+
+---
+## Day 3: Operators and Expressions (2025-11-27)
+
+### Socratic Task 1: Integer vs. Double Division
+
+**Objective:** Understand the difference between integer division and floating-point division.
+
+**Solution Code (`OperatorsDemo/Program.cs`):**
+
+```csharp
+// Integer Division
+int a = 10;
+int b = 3;
+Console.WriteLine($"a / b = {a / b}");
+
+// Double Division
+Console.WriteLine("\n--- Using Double ---");
+double c = 10;
+double d = 3;
+Console.WriteLine($"c / d = {c / d}");
+```
+
+**Test Output:**
+
+```
+a / b = 3
+---
+Using Double ---
+c / d = 3.3333333333333335
+```
+**Explanation:** Dividing two `int` variables results in an `int`, with the decimal part truncated. To get a floating-point result, at least one of the operands must be a floating-point type like `double`.
+
+### Socratic Task 2: Type Casting for Division
+
+**Objective:** Force floating-point division on integers using type casting.
+
+**Solution Code:**
+
+```csharp
+int a = 10;
+int b = 3;
+double result = (double)a / b;
+Console.WriteLine($"10 / 3 = {result}");
+```
+
+**Test Output:**
+```
+10 / 3 = 3.3333333333333335
+```
+**Explanation:** Casting one of the integers to a `double` before the division operation forces the entire calculation to be performed using floating-point arithmetic, preserving the decimal result.
+
+### Socratic Task 3: Combining Operator Types
+
+**Objective:** Create a realistic scenario combining arithmetic, comparison, and logical operators.
+
+**Solution Code (Banking App Withdrawal Logic):**
+```csharp
+double accountBalance = 200;
+double withdrawalAmount = 150;
+bool isAccountActive = true;
+
+bool canWithdraw = isAccountActive && (accountBalance >= withdrawalAmount);
+Console.WriteLine($"Can Withdraw: {canWithdraw}");
+```
+**Test Output:**
+```
+Can Withdraw: True
+```
+**Explanation:** This code correctly checks if an account is active (`isAccountActive`) AND if the balance is sufficient (`accountBalance >= withdrawalAmount`). It combines boolean, comparison (`>=`), and logical (`&&`) operators to make a complex decision.
+
+---
+### Test_Agent Level 1: Basic Arithmetic (Trivial)
+
+**Challenge:** Perform and display all five basic arithmetic operations on two integers.
+
+**Student's Solution:**
+```csharp
+int a = 20;
+int b = 6;
+
+Console.WriteLine($"a = {a}, b = {b}");
+Console.WriteLine($"Addition: {a + b}");
+Console.WriteLine($"Subtraction: {a - b}");
+Console.WriteLine($"Multiplication: {a * b}");
+Console.WriteLine($"Division: {a / b}");
+Console.WriteLine($"Modulus: {a % b}");
+```
+
+**Test_Agent Evaluation:**
+- **Result**: PASS
+- **Output:**
+```
+a = 20, b = 6
+Addition: 26
+Subtraction: 14
+Multiplication: 120
+Division: 3
+Modulus: 2
+```
+- **Explanation:** Correctly uses all five arithmetic operators and demonstrates understanding of integer division (`20 / 6 = 3`).
+
+```
