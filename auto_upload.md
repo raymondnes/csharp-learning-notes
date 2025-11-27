@@ -487,3 +487,150 @@ The `&&` (AND) operator returns `true` only if **both** sides are true.
 Think about a real-world scenario: "You can watch a movie if you've finished your homework AND it's after 8 PM."
 
 If you've finished your homework but it's only 6 PM, can you watch the movie? Why or why not?
+
+**Student's Response:**
+I can't watch a movie because the second condition is not met which is 8 pm
+
+**Professor's Response:**
+Exactly! This perfectly demonstrates how the `&&` (AND) operator works:
+
+- Condition 1: Homework finished? ✓ `true`
+- Condition 2: After 8 PM? ✗ `false` (it's only 6 PM)
+- **Result**: `true && false = false` → No movie!
+
+With `&&`, **BOTH** conditions must be true for the overall result to be true. If even one condition is false, the entire expression is false.
+
+Now let's think about the `||` (OR) operator:
+
+**Professor's Socratic Question (Understanding OR):**
+
+The `||` (OR) operator returns `true` if **either** (or both) conditions are true.
+
+Using a similar scenario: "You can have dessert if you ate all your vegetables OR it's your birthday."
+
+If you didn't eat your vegetables but it IS your birthday, can you have dessert? Why or why not?
+
+**Student's Response:**
+Yes, because one condition is met, my birthday
+
+**Professor's Response:**
+Perfect! This demonstrates how the `||` (OR) operator works:
+
+- Condition 1: Ate all vegetables? ✗ `false`
+- Condition 2: Is it your birthday? ✓ `true`
+- **Result**: `false || true = true` → You get dessert!
+
+With `||`, you only need **ONE** condition to be true for the overall result to be true. Both can be true, or just one - either way, the result is `true`.
+
+Here's a summary of the logical operators:
+
+**AND (`&&`) - Both must be true:**
+- `true && true = true`
+- `true && false = false`
+- `false && true = false`
+- `false && false = false`
+
+**OR (`||`) - At least one must be true:**
+- `true || true = true`
+- `true || false = true`
+- `false || true = true`
+- `false || false = false`
+
+**NOT (`!`) - Inverts the value:**
+- `!true = false`
+- `!false = true`
+
+**Professor's Instruction:**
+
+Let's see these in action. Add this code to your program:
+
+```csharp
+Console.WriteLine("\n--- Logical Operators ---");
+bool hasLicense = true;
+bool hasInsurance = false;
+int age = 18;
+
+Console.WriteLine($"hasLicense: {hasLicense}");
+Console.WriteLine($"hasInsurance: {hasInsurance}");
+Console.WriteLine($"age: {age}");
+Console.WriteLine();
+
+// AND operator
+Console.WriteLine($"hasLicense && hasInsurance: {hasLicense && hasInsurance}");
+
+// OR operator
+Console.WriteLine($"hasLicense || hasInsurance: {hasLicense || hasInsurance}");
+
+// NOT operator
+Console.WriteLine($"!hasLicense: {!hasLicense}");
+Console.WriteLine($"!hasInsurance: {!hasInsurance}");
+
+// Combining comparison and logical operators
+Console.WriteLine($"age >= 18 && hasLicense: {age >= 18 && hasLicense}");
+```
+
+Run your program and show me the output.
+
+**Student's Response:**
+```
+--- Logical Operators ---
+hasLicense: True
+hasInsurance: False
+age: 18
+
+hasLicense && hasInsurance: False
+hasLicense || hasInsurance: True
+!hasLicense: False
+!hasInsurance: True
+age >= 18 && hasLicense: True
+```
+
+**Professor's Response:**
+Excellent! Let's analyze each result to reinforce your understanding:
+
+1. **`hasLicense && hasInsurance: False`**
+   - `true && false = false`
+   - You have a license BUT no insurance, so the AND condition fails
+
+2. **`hasLicense || hasInsurance: True`**
+   - `true || false = true`
+   - You have at least ONE (the license), so the OR condition succeeds
+
+3. **`!hasLicense: False`**
+   - `!true = false`
+   - NOT inverts the value - you DO have a license, so NOT having one is false
+
+4. **`!hasInsurance: True`**
+   - `!false = true`
+   - You DON'T have insurance (false), so NOT having insurance is true
+
+5. **`age >= 18 && hasLicense: True`**
+   - `true && true = true`
+   - This combines a comparison operator (`>=`) with a logical operator (`&&`)
+   - Age is 18 or older (true) AND you have a license (true) → both true!
+
+This last example is powerful - you're combining **comparison** and **logical** operators to create complex conditions. This is exactly how you'll make sophisticated decisions in your programs!
+
+---
+
+## **Compound Assignment Operators**
+
+Before we wrap up, there's one more set of operators to learn: **compound assignment operators**. You've actually already used some of these on Day 2!
+
+Remember when you wrote `counter += 5`? That's a compound assignment operator - a shorthand for common operations.
+
+| Operator | Meaning           | Example      | Equivalent To  |
+|----------|-------------------|--------------|----------------|
+| `+=`     | Add and assign    | `x += 5`     | `x = x + 5`    |
+| `-=`     | Subtract and assign | `x -= 3`   | `x = x - 3`    |
+| `*=`     | Multiply and assign | `x *= 2`   | `x = x * 2`    |
+| `/=`     | Divide and assign   | `x /= 4`   | `x = x / 4`    |
+| `%=`     | Modulus and assign  | `x %= 3`   | `x = x % 3`    |
+
+These are just convenient shortcuts - they make your code more concise and readable.
+
+**Professor's Socratic Question (Understanding Compound Operators):**
+
+If you have `int score = 100;` and then you write `score += 50;`, what's the value of `score` afterward?
+
+And why might a programmer prefer writing `score += 50` instead of `score = score + 50`?
