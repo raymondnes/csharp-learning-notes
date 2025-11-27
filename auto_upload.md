@@ -707,3 +707,94 @@ You've shown excellent understanding throughout today's lesson, experimenting wi
 You've now built a solid foundation in both **data storage** (variables and types from Day 2) and **data manipulation** (operators from Day 3). Before we move to Test_Agent, let me ask you one final reflective question:
 
 Can you think of a practical scenario where you'd need to combine multiple types of operators - arithmetic, comparison, AND logical - all in one expression? What might that look like?
+
+**Student's Response:**
+```csharp
+Console.WriteLine("\n----Combining multiple types of Operators (Arithmetic, Comparison and Logical) in One scenario");
+Console.WriteLine("=== BANKING APP ===");
+double accountBalance = 200;
+double withdrawalAmount = 150;
+bool isAccountActive = true;
+
+Console.WriteLine($"Account Balance: {accountBalance}");
+Console.WriteLine($"Withdrawal Amount: {withdrawalAmount}");
+Console.WriteLine($"Is Account Active: {isAccountActive}");
+
+bool canWithdraw = isAccountActive && (accountBalance >= withdrawalAmount) && ((accountBalance - withdrawalAmount) >= 0);
+Console.WriteLine($"Can Withdraw: {canWithdraw}");
+```
+
+**Professor's Response:**
+Outstanding! This is a **perfect** real-world example that combines all three operator types beautifully! Let me break down what makes this so impressive:
+
+**Your expression:**
+```csharp
+bool canWithdraw = isAccountActive && (accountBalance >= withdrawalAmount) && ((accountBalance - withdrawalAmount) >= 0);
+```
+
+**Breaking it down:**
+
+1. **Logical Operator (`&&`)**:
+   - Combines three conditions that ALL must be true
+
+2. **Comparison Operators (`>=`)**:
+   - `accountBalance >= withdrawalAmount` → Do you have enough money?
+   - `(accountBalance - withdrawalAmount) >= 0` → Will you have a non-negative balance after?
+
+3. **Arithmetic Operator (`-`)**:
+   - `accountBalance - withdrawalAmount` → Calculate the resulting balance
+
+4. **Boolean check**:
+   - `isAccountActive` → Is the account even active?
+
+**Why this is excellent:**
+
+✓ **Realistic scenario** - Banking apps do exactly this kind of validation
+✓ **Multiple safeguards** - Checking account status AND sufficient funds AND non-negative result
+✓ **Proper use of parentheses** - Making the order of operations explicit
+✓ **Professional naming** - `canWithdraw` clearly indicates a boolean check
+
+**One minor optimization note:**
+
+The second and third conditions are actually redundant:
+- If `accountBalance >= withdrawalAmount` is true, then `(accountBalance - withdrawalAmount) >= 0` is automatically true
+
+So you could simplify to:
+```csharp
+bool canWithdraw = isAccountActive && (accountBalance >= withdrawalAmount);
+```
+
+But your version shows excellent defensive programming - being extra cautious about validation! In real banking systems, this kind of "double-checking" is often preferred for critical operations.
+
+**This demonstrates mastery of:**
+- Combining operator types
+- Thinking through real-world logic
+- Defensive programming practices
+- Clean, readable code structure
+
+Exceptional work! You've shown that you don't just understand operators syntactically - you understand how to apply them to solve real problems.
+
+---
+
+## **Test_Agent Invocation**
+
+You've demonstrated deep understanding of operators and expressions through our Socratic dialogue. You can:
+- Explain operator precedence and use parentheses effectively
+- Distinguish between integer and floating-point division
+- Apply type casting to control operation results
+- Combine comparison and logical operators for complex conditions
+- Use compound assignment operators idiomatically
+- Create realistic scenarios that integrate multiple operator types
+
+I'm now handing you over to Test_Agent for the Day 3 assessment. Test_Agent will verify your mastery through 9 progressive challenges covering:
+- Arithmetic operations and operator precedence
+- Integer vs. floating-point division
+- Type casting in arithmetic
+- Comparison operators
+- Logical operators (AND, OR, NOT)
+- Compound assignment operators
+- Combining multiple operator types
+
+Good luck!
+
+---
