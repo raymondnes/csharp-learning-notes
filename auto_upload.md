@@ -798,3 +798,44 @@ I'm now handing you over to Test_Agent for the Day 3 assessment. Test_Agent will
 Good luck!
 
 ---
+
+## **Test_Agent Assessment - Day 3: Operators and Expressions**
+
+**Concepts to be tested:**
+- Arithmetic operators (+, -, *, /, %)
+- Operator precedence and parentheses
+- Integer division vs. floating-point division
+- Type casting in arithmetic operations
+- Comparison operators (==, !=, <, >, <=, >=)
+- Logical operators (&&, ||, !)
+- Compound assignment operators (+=, -=, *=, /=, %=)
+- Combining multiple operator types
+
+---
+
+## **Level 1: Foundation (Trivial)**
+
+**Challenge:**
+Create a console application that performs basic arithmetic operations on two integers and displays the results.
+
+**Requirements:**
+1. Declare two `int` variables: `a = 20` and `b = 6`
+2. Calculate and display the following using arithmetic operators:
+   - Addition: `a + b`
+   - Subtraction: `a - b`
+   - Multiplication: `a * b`
+   - Division: `a / b`
+   - Modulus: `a % b`
+3. Use string interpolation to display each result with a label
+
+**Expected Output:**
+```
+a = 20, b = 6
+Addition: 26
+Subtraction: 14
+Multiplication: 120
+Division: 3
+Modulus: 2
+```
+
+Show me your code and the output.
