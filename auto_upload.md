@@ -839,3 +839,54 @@ Modulus: 2
 ```
 
 Show me your code and the output.
+
+**Student's Code:**
+```csharp
+int a = 20;
+int b = 6;
+
+Console.WriteLine($"a = {a}, b = {b}");
+Console.WriteLine($"Addition: {a + b}");
+Console.WriteLine($"Subtraction: {a - b}");
+Console.WriteLine($"Multiplication: {a * b}");
+Console.WriteLine($"Division: {a / b}");
+Console.WriteLine($"Modulus: {a % b}");
+```
+
+**Test_Agent Evaluation:**
+
+✓ Correct variable declarations (`int a = 20`, `int b = 6`)
+✓ All five arithmetic operators used correctly
+✓ String interpolation used for all output
+✓ Output format matches expected results exactly
+✓ Division shows integer division (3, not 3.333...)
+✓ Modulus correctly shows remainder (2)
+
+**LEVEL 1: PASS**
+
+---
+
+## **Level 2: Foundation (Trivial)**
+
+**Challenge:**
+Demonstrate your understanding of operator precedence by evaluating expressions with multiple operators.
+
+**Requirements:**
+1. Declare three `int` variables: `x = 10`, `y = 5`, `z = 2`
+2. Calculate and display the following expressions:
+   - `x + y * z` (without parentheses)
+   - `(x + y) * z` (with parentheses)
+   - `x - y + z`
+   - `x * y / z`
+3. Use string interpolation to display each expression and its result
+
+**Expected Output:**
+```
+x = 10, y = 5, z = 2
+x + y * z = 20
+(x + y) * z = 30
+x - y + z = 7
+x * y / z = 25
+```
+
+Show me your code and the output.
