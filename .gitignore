@@ -1,4 +1,18 @@
-# Visual Studio / .NET build outputs (these clutter the repo)
+# Agent definition files (kept local only)
+csharp_prof.md
+Test_Agent.md
+GEMINI.md
+CLAUDE.md
+
+# Automation scripts (kept local only)
+auto_upload.ps1
+start_auto_upload.bat
+AUTO_UPLOAD_README.md
+
+# Claude Code settings (kept local only)
+.claude/
+
+# Visual Studio / .NET build outputs
 bin/
 obj/
 *.suo
@@ -7,14 +21,16 @@ obj/
 *.sln.docstates
 *.csproj.user
 
-# Ignore practice projects (students can recreate these from lesson notes)
+# Practice projects (students can recreate these from lesson notes)
 Helloworld/
 VariablesDemo/
 GreetingApp/
 
-# Files tracked in repository:
+# ============================================
+# PUBLIC FILES (tracked in GitHub repository):
+# ============================================
 # - Daily lesson notes: YYYY-MM-DD_CSharp_Lesson.md
 # - Task solutions: CSharp_Task_Solutions.md
-# - Agent definitions: csharp_prof.md, Test_Agent.md, GEMINI.md, CLAUDE.md
-# - Auto-upload scripts: auto_upload.ps1, start_auto_upload.bat, AUTO_UPLOAD_README.md
-# - Claude settings: .claude/ folder
+#
+# Everything else stays local for your use only.
+# ============================================
