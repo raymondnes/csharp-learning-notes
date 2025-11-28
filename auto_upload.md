@@ -1071,3 +1071,39 @@ Can drive with insurance waiver: True
 ```
 
 Show me your code and the output.
+
+**Student's Code:**
+```csharp
+bool hasDriverLicense = true;
+bool hasInsurance = false;
+bool isOver18 = true;
+
+Console.WriteLine($"hasDriverLicense: {hasDriverLicense}");
+Console.WriteLine($"hasInsurance: {hasInsurance}");
+Console.WriteLine($"isOver18: {isOver18}");
+
+bool canDriveLegally = hasDriverLicense && hasInsurance && isOver18;
+bool hasAtLeastOneRequirement = hasDriverLicense || hasInsurance || isOver18;
+bool canDriveWithInsuranceWaiver = hasDriverLicense && isOver18 && !hasInsurance;
+
+Console.WriteLine($"Can drive legally: {canDriveLegally}");
+Console.WriteLine($"Has at least one requirement: {hasAtLeastOneRequirement}");
+Console.WriteLine($"Missing insurance: {!hasInsurance}");
+Console.WriteLine($"Can drive with insurance waiver: {canDriveWithInsuranceWaiver}");
+```
+
+**Test_Agent Evaluation:**
+
+✓ Correct variable declarations
+✓ All logical operators used correctly (&&, ||, !)
+✓ `canDriveLegally`: False (all three must be true, but insurance is false)
+✓ `hasAtLeastOneRequirement`: True (at least one is true)
+✓ `Missing insurance`: True (NOT false = true)
+✓ `canDriveWithInsuranceWaiver`: True (license AND over18 AND NOT insurance)
+✓ String interpolation used throughout
+✓ Good practice: storing complex conditions in descriptive variables
+✗ Missing blank line between variable declarations and first output section
+
+**Expected output has a blank line after "isOver18: True"**
+
+The logic is perfect, but add `Console.WriteLine();` after displaying the three boolean variables to match the exact format. Try again!
