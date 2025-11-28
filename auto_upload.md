@@ -1107,3 +1107,66 @@ Console.WriteLine($"Can drive with insurance waiver: {canDriveWithInsuranceWaive
 **Expected output has a blank line after "isOver18: True"**
 
 The logic is perfect, but add `Console.WriteLine();` after displaying the three boolean variables to match the exact format. Try again!
+
+**Student's Retry Code:**
+```csharp
+bool hasDriverLicense = true;
+bool hasInsurance = false;
+bool isOver18 = true;
+
+Console.WriteLine($"hasDriverLicense: {hasDriverLicense}");
+Console.WriteLine($"hasInsurance: {hasInsurance}");
+Console.WriteLine($"isOver18: {isOver18}");
+
+bool canDriveLegally = hasDriverLicense && hasInsurance && isOver18;
+bool hasAtLeastOneRequirement = hasDriverLicense || hasInsurance || isOver18;
+bool canDriveWithInsuranceWaiver = hasDriverLicense && isOver18 && !hasInsurance;
+Console.WriteLine("");
+Console.WriteLine($"Can drive legally: {canDriveLegally}");
+Console.WriteLine($"Has at least one requirement: {hasAtLeastOneRequirement}");
+Console.WriteLine($"Missing insurance: {!hasInsurance}");
+Console.WriteLine($"Can drive with insurance waiver: {canDriveWithInsuranceWaiver}");
+```
+
+**Test_Agent Evaluation:**
+
+✓ Correct variable declarations
+✓ All logical operators used correctly (&&, ||, !)
+✓ All logical conditions evaluated correctly
+✓ String interpolation used throughout
+✓ Blank line added after the three boolean variable displays
+✓ Output format matches expected results exactly
+✓ Excellent use of descriptive variable names for complex conditions
+✓ Demonstrates mastery of AND, OR, and NOT operators
+
+**LEVEL 5: PASS**
+
+---
+
+## **Level 6: Integration (Moderate)**
+
+**Challenge:**
+Create a program that demonstrates compound assignment operators by tracking a game score through multiple rounds.
+
+**Requirements:**
+1. Declare an `int` variable `score = 0`
+2. Simulate 5 rounds of score changes:
+   - Round 1: Add 100 points using `+=`
+   - Round 2: Subtract 30 points using `-=`
+   - Round 3: Multiply score by 2 using `*=`
+   - Round 4: Add 50 points using `+=`
+   - Round 5: Divide score by 4 using `/=`
+3. Display the score after each round
+4. Use string interpolation for all output
+
+**Expected Output:**
+```
+Initial Score: 0
+After Round 1 (+100): 100
+After Round 2 (-30): 70
+After Round 3 (*2): 140
+After Round 4 (+50): 190
+After Round 5 (/4): 47
+```
+
+Show me your code and the output.
