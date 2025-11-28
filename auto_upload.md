@@ -1014,3 +1014,60 @@ num1 <= num2: True
 ```
 
 Show me your code and the output.
+
+**Student's Code:**
+```csharp
+int num1 = 15;
+int num2 = 20;
+Console.WriteLine($"num1 = {num1}, num2 = {num2}");
+Console.WriteLine($"num1 == num2: {num1 == num2}");
+Console.WriteLine($"num1 != num2: {num1 != num2}");
+Console.WriteLine($"num1 > num2: {num1 > num2}");
+Console.WriteLine($"num1 < num2: {num1 < num2}");
+Console.WriteLine($"num1 >= num2: {num1 >= num2}");
+Console.WriteLine($"num1 <= num2: {num1 <= num2}");
+```
+
+**Test_Agent Evaluation:**
+
+✓ Correct variable declarations (`num1 = 15`, `num2 = 20`)
+✓ All six comparison operators used correctly
+✓ All comparison results are correct
+✓ String interpolation used for all output
+✓ Output format matches expected results exactly
+✓ Demonstrates understanding of all comparison operators
+
+**LEVEL 4: PASS**
+
+---
+
+## **Level 5: Integration (Moderate)**
+
+**Challenge:**
+Create a program that uses logical operators (AND, OR, NOT) to evaluate complex conditions.
+
+**Requirements:**
+1. Declare three `bool` variables:
+   - `hasDriverLicense = true`
+   - `hasInsurance = false`
+   - `isOver18 = true`
+2. Evaluate and display the following conditions:
+   - Can drive legally: `hasDriverLicense && hasInsurance && isOver18`
+   - Has at least one requirement: `hasDriverLicense || hasInsurance || isOver18`
+   - Missing insurance: `!hasInsurance`
+   - Can drive with insurance waiver: `hasDriverLicense && isOver18 && !hasInsurance`
+3. Use string interpolation for all output
+
+**Expected Output:**
+```
+hasDriverLicense: True
+hasInsurance: False
+isOver18: True
+
+Can drive legally: False
+Has at least one requirement: True
+Missing insurance: True
+Can drive with insurance waiver: True
+```
+
+Show me your code and the output.
