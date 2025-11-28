@@ -937,3 +937,80 @@ Floating-Point Division: 17.0 / 4.0 = 4.25
 ```
 
 Show me your code and the output.
+
+**Student's Code:**
+```csharp
+int num1 = 17;
+int num2 = 4;
+Console.WriteLine($"Integer Devision: 17 / 4 {num1 / num2}");
+Console.WriteLine($"Floating-Point Division: 17.0 / 4.0 {(double)num1 / num2}");
+```
+
+**Test_Agent Evaluation:**
+
+✓ Correct variable declarations
+✓ Integer division performed correctly (17 / 4 = 4)
+✓ Type casting used correctly `(double)num1` to get floating-point result
+✓ Floating-point division result correct (4.25)
+✓ String interpolation used
+✗ Minor typo in output: "Devision" should be "Division"
+✗ Output format doesn't match exactly - missing `=` sign between expression and result
+
+**Expected format:** `Integer Division: 17 / 4 = 4`
+**Your format:** `Integer Devision: 17 / 4 4`
+
+The logic and code are correct, but the output formatting needs adjustment. Please fix the typo and add the `=` sign to match the expected output format exactly.
+
+Try again!
+
+**Student's Retry Code:**
+```csharp
+int num1 = 17;
+int num2 = 4;
+Console.WriteLine($"Integer Division: 17 / 4 = {num1 / num2}");
+Console.WriteLine($"Floating-Point Division: 17.0 / 4.0 = {(double)num1 / num2}");
+```
+
+**Test_Agent Evaluation:**
+
+✓ Correct variable declarations
+✓ Integer division performed correctly (4)
+✓ Floating-point division performed correctly (4.25)
+✓ Type casting `(double)num1` used correctly
+✓ String interpolation used for all output
+✓ Typo fixed: "Division" spelled correctly
+✓ Output format matches exactly with `=` sign
+✓ Demonstrates clear understanding of integer vs. floating-point division
+
+**LEVEL 3: PASS**
+
+---
+
+## **Level 4: Application (Easy)**
+
+**Challenge:**
+Create a program that uses comparison operators to compare two numbers and display the results.
+
+**Requirements:**
+1. Declare two `int` variables: `num1 = 15` and `num2 = 20`
+2. Use all six comparison operators and display the results:
+   - `==` (equal to)
+   - `!=` (not equal to)
+   - `>` (greater than)
+   - `<` (less than)
+   - `>=` (greater than or equal to)
+   - `<=` (less than or equal to)
+3. Use string interpolation for all output
+
+**Expected Output:**
+```
+num1 = 15, num2 = 20
+num1 == num2: False
+num1 != num2: True
+num1 > num2: False
+num1 < num2: True
+num1 >= num2: False
+num1 <= num2: True
+```
+
+Show me your code and the output.
