@@ -1170,3 +1170,76 @@ After Round 5 (/4): 47
 ```
 
 Show me your code and the output.
+
+**Student's Code:**
+```csharp
+int score = 0;
+Console.WriteLine($"Initial Score: {score}");
+score += 100;
+Console.WriteLine($"After Round 1 (+100): {score}");
+score -= 30;
+Console.WriteLine($"After Round 2 (-30): {score}");
+score *= 2;
+Console.WriteLine($"After Round 3 (*2): {score}");
+score += 50;
+Console.WriteLine($"After Round 4 (+50): {score}");
+score /= 4;
+Console.WriteLine($"After Round 5 (/4): {score}");
+```
+
+**Test_Agent Evaluation:**
+
+✓ Correct variable declaration (`score = 0`)
+✓ All five compound assignment operators used correctly (+=, -=, *=, +=, /=)
+✓ Score progression is accurate:
+  - Initial: 0
+  - Round 1: 0 + 100 = 100
+  - Round 2: 100 - 30 = 70
+  - Round 3: 70 * 2 = 140
+  - Round 4: 140 + 50 = 190
+  - Round 5: 190 / 4 = 47 (integer division)
+✓ String interpolation used for all output
+✓ Output format matches expected results exactly
+✓ Clean, concise code structure
+✓ Demonstrates understanding of cumulative variable modifications
+
+**LEVEL 6: PASS**
+
+---
+
+## **Level 7: Mastery (Challenging)**
+
+**Challenge:**
+Create a program that combines arithmetic, comparison, and logical operators to determine eligibility for a student discount.
+
+**Requirements:**
+1. Declare the following variables:
+   - `int age = 19`
+   - `double gpa = 3.5`
+   - `bool isEnrolled = true`
+   - `int creditHours = 12`
+2. Calculate eligibility using this logic:
+   - Student must be enrolled
+   - Student must be 25 or younger
+   - Student must have GPA >= 2.5
+   - Student must be taking at least 12 credit hours
+3. Calculate a discount percentage:
+   - Base discount: 10%
+   - Add 5% if GPA >= 3.5
+   - Add 5% if taking 15 or more credit hours
+4. Display all variables, eligibility status, and final discount percentage
+5. Use string interpolation for all output
+
+**Expected Output:**
+```
+=== STUDENT DISCOUNT CALCULATOR ===
+Age: 19
+GPA: 3.5
+Enrolled: True
+Credit Hours: 12
+
+Eligible for discount: True
+Discount percentage: 15%
+```
+
+Show me your code and the output.
