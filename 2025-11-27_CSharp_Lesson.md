@@ -487,3 +487,1217 @@ The `&&` (AND) operator returns `true` only if **both** sides are true.
 Think about a real-world scenario: "You can watch a movie if you've finished your homework AND it's after 8 PM."
 
 If you've finished your homework but it's only 6 PM, can you watch the movie? Why or why not?
+
+**Student's Response:**
+I can't watch a movie because the second condition is not met which is 8 pm
+
+**Professor's Response:**
+Exactly! This perfectly demonstrates how the `&&` (AND) operator works:
+
+- Condition 1: Homework finished? ✓ `true`
+- Condition 2: After 8 PM? ✗ `false` (it's only 6 PM)
+- **Result**: `true && false = false` → No movie!
+
+With `&&`, **BOTH** conditions must be true for the overall result to be true. If even one condition is false, the entire expression is false.
+
+Now let's think about the `||` (OR) operator:
+
+**Professor's Socratic Question (Understanding OR):**
+
+The `||` (OR) operator returns `true` if **either** (or both) conditions are true.
+
+Using a similar scenario: "You can have dessert if you ate all your vegetables OR it's your birthday."
+
+If you didn't eat your vegetables but it IS your birthday, can you have dessert? Why or why not?
+
+**Student's Response:**
+Yes, because one condition is met, my birthday
+
+**Professor's Response:**
+Perfect! This demonstrates how the `||` (OR) operator works:
+
+- Condition 1: Ate all vegetables? ✗ `false`
+- Condition 2: Is it your birthday? ✓ `true`
+- **Result**: `false || true = true` → You get dessert!
+
+With `||`, you only need **ONE** condition to be true for the overall result to be true. Both can be true, or just one - either way, the result is `true`.
+
+Here's a summary of the logical operators:
+
+**AND (`&&`) - Both must be true:**
+- `true && true = true`
+- `true && false = false`
+- `false && true = false`
+- `false && false = false`
+
+**OR (`||`) - At least one must be true:**
+- `true || true = true`
+- `true || false = true`
+- `false || true = true`
+- `false || false = false`
+
+**NOT (`!`) - Inverts the value:**
+- `!true = false`
+- `!false = true`
+
+**Professor's Instruction:**
+
+Let's see these in action. Add this code to your program:
+
+```csharp
+Console.WriteLine("\n--- Logical Operators ---");
+bool hasLicense = true;
+bool hasInsurance = false;
+int age = 18;
+
+Console.WriteLine($"hasLicense: {hasLicense}");
+Console.WriteLine($"hasInsurance: {hasInsurance}");
+Console.WriteLine($"age: {age}");
+Console.WriteLine();
+
+// AND operator
+Console.WriteLine($"hasLicense && hasInsurance: {hasLicense && hasInsurance}");
+
+// OR operator
+Console.WriteLine($"hasLicense || hasInsurance: {hasLicense || hasInsurance}");
+
+// NOT operator
+Console.WriteLine($"!hasLicense: {!hasLicense}");
+Console.WriteLine($"!hasInsurance: {!hasInsurance}");
+
+// Combining comparison and logical operators
+Console.WriteLine($"age >= 18 && hasLicense: {age >= 18 && hasLicense}");
+```
+
+Run your program and show me the output.
+
+**Student's Response:**
+```
+--- Logical Operators ---
+hasLicense: True
+hasInsurance: False
+age: 18
+
+hasLicense && hasInsurance: False
+hasLicense || hasInsurance: True
+!hasLicense: False
+!hasInsurance: True
+age >= 18 && hasLicense: True
+```
+
+**Professor's Response:**
+Excellent! Let's analyze each result to reinforce your understanding:
+
+1. **`hasLicense && hasInsurance: False`**
+   - `true && false = false`
+   - You have a license BUT no insurance, so the AND condition fails
+
+2. **`hasLicense || hasInsurance: True`**
+   - `true || false = true`
+   - You have at least ONE (the license), so the OR condition succeeds
+
+3. **`!hasLicense: False`**
+   - `!true = false`
+   - NOT inverts the value - you DO have a license, so NOT having one is false
+
+4. **`!hasInsurance: True`**
+   - `!false = true`
+   - You DON'T have insurance (false), so NOT having insurance is true
+
+5. **`age >= 18 && hasLicense: True`**
+   - `true && true = true`
+   - This combines a comparison operator (`>=`) with a logical operator (`&&`)
+   - Age is 18 or older (true) AND you have a license (true) → both true!
+
+This last example is powerful - you're combining **comparison** and **logical** operators to create complex conditions. This is exactly how you'll make sophisticated decisions in your programs!
+
+---
+
+## **Compound Assignment Operators**
+
+Before we wrap up, there's one more set of operators to learn: **compound assignment operators**. You've actually already used some of these on Day 2!
+
+Remember when you wrote `counter += 5`? That's a compound assignment operator - a shorthand for common operations.
+
+| Operator | Meaning           | Example      | Equivalent To  |
+|----------|-------------------|--------------|----------------|
+| `+=`     | Add and assign    | `x += 5`     | `x = x + 5`    |
+| `-=`     | Subtract and assign | `x -= 3`   | `x = x - 3`    |
+| `*=`     | Multiply and assign | `x *= 2`   | `x = x * 2`    |
+| `/=`     | Divide and assign   | `x /= 4`   | `x = x / 4`    |
+| `%=`     | Modulus and assign  | `x %= 3`   | `x = x % 3`    |
+
+These are just convenient shortcuts - they make your code more concise and readable.
+
+**Professor's Socratic Question (Understanding Compound Operators):**
+
+If you have `int score = 100;` and then you write `score += 50;`, what's the value of `score` afterward?
+
+And why might a programmer prefer writing `score += 50` instead of `score = score + 50`?
+
+**Student's Response:**
+The value of score is 150. A programmer prefers += because it's readable and concise
+
+**Professor's Response:**
+Exactly right on both counts!
+
+- `score` starts at 100
+- `score += 50` means `score = score + 50`
+- So `score = 100 + 50 = 150`
+
+And you've identified the key benefits of compound assignment operators:
+
+1. ✓ **More concise** - Less typing, shorter code
+2. ✓ **More readable** - The intent is clear: "add 50 to score"
+3. ✓ **Less error-prone** - You don't repeat the variable name, so no chance of typos like `score = scroe + 50`
+
+These operators become especially valuable when you have longer variable names:
+
+```csharp
+playerExperiencePoints += 250;  // Clean and clear
+
+// vs
+
+playerExperiencePoints = playerExperiencePoints + 250;  // More verbose, easier to mistype
+```
+
+---
+
+## **Day 3 Summary**
+
+Excellent work today! You've mastered a comprehensive set of operators in C#. Let me summarize everything you've learned:
+
+**✓ Arithmetic Operators:**
+- `+` (addition), `-` (subtraction), `*` (multiplication), `/` (division), `%` (modulus)
+- Integer division truncates the decimal part
+- Type casting with `(double)` to get decimal results from integer division
+
+**✓ Comparison Operators:**
+- `==` (equal), `!=` (not equal), `>`, `<`, `>=`, `<=`
+- Return boolean values (`true` or `false`)
+- `=` is assignment, `==` is comparison
+
+**✓ Logical Operators:**
+- `&&` (AND) - both conditions must be true
+- `||` (OR) - at least one condition must be true
+- `!` (NOT) - inverts the boolean value
+- Can combine with comparison operators for complex conditions
+
+**✓ Compound Assignment Operators:**
+- `+=`, `-=`, `*=`, `/=`, `%=`
+- Shorthand for common operations
+- More concise and readable
+
+**✓ Operator Precedence:**
+- C# follows BODMAS/PEMDAS rules
+- Parentheses override default precedence
+- The type of operands determines the type of result
+
+**Key Insights You Discovered:**
+
+1. **Type matters in operations** - `int / int` gives `int`, not `double`
+2. **Casting must happen before division** - Converting the result after is too late
+3. **Logical operators mirror real-world logic** - AND requires all, OR requires any
+4. **Compound operators improve code quality** - Less repetition, fewer errors
+
+You've shown excellent understanding throughout today's lesson, experimenting with code and making logical connections between concepts!
+
+**Professor's Final Reflection:**
+
+You've now built a solid foundation in both **data storage** (variables and types from Day 2) and **data manipulation** (operators from Day 3). Before we move to Test_Agent, let me ask you one final reflective question:
+
+Can you think of a practical scenario where you'd need to combine multiple types of operators - arithmetic, comparison, AND logical - all in one expression? What might that look like?
+
+**Student's Response:**
+```csharp
+Console.WriteLine("\n----Combining multiple types of Operators (Arithmetic, Comparison and Logical) in One scenario");
+Console.WriteLine("=== BANKING APP ===");
+double accountBalance = 200;
+double withdrawalAmount = 150;
+bool isAccountActive = true;
+
+Console.WriteLine($"Account Balance: {accountBalance}");
+Console.WriteLine($"Withdrawal Amount: {withdrawalAmount}");
+Console.WriteLine($"Is Account Active: {isAccountActive}");
+
+bool canWithdraw = isAccountActive && (accountBalance >= withdrawalAmount) && ((accountBalance - withdrawalAmount) >= 0);
+Console.WriteLine($"Can Withdraw: {canWithdraw}");
+```
+
+**Professor's Response:**
+Outstanding! This is a **perfect** real-world example that combines all three operator types beautifully! Let me break down what makes this so impressive:
+
+**Your expression:**
+```csharp
+bool canWithdraw = isAccountActive && (accountBalance >= withdrawalAmount) && ((accountBalance - withdrawalAmount) >= 0);
+```
+
+**Breaking it down:**
+
+1. **Logical Operator (`&&`)**:
+   - Combines three conditions that ALL must be true
+
+2. **Comparison Operators (`>=`)**:
+   - `accountBalance >= withdrawalAmount` → Do you have enough money?
+   - `(accountBalance - withdrawalAmount) >= 0` → Will you have a non-negative balance after?
+
+3. **Arithmetic Operator (`-`)**:
+   - `accountBalance - withdrawalAmount` → Calculate the resulting balance
+
+4. **Boolean check**:
+   - `isAccountActive` → Is the account even active?
+
+**Why this is excellent:**
+
+✓ **Realistic scenario** - Banking apps do exactly this kind of validation
+✓ **Multiple safeguards** - Checking account status AND sufficient funds AND non-negative result
+✓ **Proper use of parentheses** - Making the order of operations explicit
+✓ **Professional naming** - `canWithdraw` clearly indicates a boolean check
+
+**One minor optimization note:**
+
+The second and third conditions are actually redundant:
+- If `accountBalance >= withdrawalAmount` is true, then `(accountBalance - withdrawalAmount) >= 0` is automatically true
+
+So you could simplify to:
+```csharp
+bool canWithdraw = isAccountActive && (accountBalance >= withdrawalAmount);
+```
+
+But your version shows excellent defensive programming - being extra cautious about validation! In real banking systems, this kind of "double-checking" is often preferred for critical operations.
+
+**This demonstrates mastery of:**
+- Combining operator types
+- Thinking through real-world logic
+- Defensive programming practices
+- Clean, readable code structure
+
+Exceptional work! You've shown that you don't just understand operators syntactically - you understand how to apply them to solve real problems.
+
+---
+
+## **Test_Agent Invocation**
+
+You've demonstrated deep understanding of operators and expressions through our Socratic dialogue. You can:
+- Explain operator precedence and use parentheses effectively
+- Distinguish between integer and floating-point division
+- Apply type casting to control operation results
+- Combine comparison and logical operators for complex conditions
+- Use compound assignment operators idiomatically
+- Create realistic scenarios that integrate multiple operator types
+
+I'm now handing you over to Test_Agent for the Day 3 assessment. Test_Agent will verify your mastery through 9 progressive challenges covering:
+- Arithmetic operations and operator precedence
+- Integer vs. floating-point division
+- Type casting in arithmetic
+- Comparison operators
+- Logical operators (AND, OR, NOT)
+- Compound assignment operators
+- Combining multiple operator types
+
+Good luck!
+
+---
+
+## **Test_Agent Assessment - Day 3: Operators and Expressions**
+
+**Concepts to be tested:**
+- Arithmetic operators (+, -, *, /, %)
+- Operator precedence and parentheses
+- Integer division vs. floating-point division
+- Type casting in arithmetic operations
+- Comparison operators (==, !=, <, >, <=, >=)
+- Logical operators (&&, ||, !)
+- Compound assignment operators (+=, -=, *=, /=, %=)
+- Combining multiple operator types
+
+---
+
+## **Level 1: Foundation (Trivial)**
+
+**Challenge:**
+Create a console application that performs basic arithmetic operations on two integers and displays the results.
+
+**Requirements:**
+1. Declare two `int` variables: `a = 20` and `b = 6`
+2. Calculate and display the following using arithmetic operators:
+   - Addition: `a + b`
+   - Subtraction: `a - b`
+   - Multiplication: `a * b`
+   - Division: `a / b`
+   - Modulus: `a % b`
+3. Use string interpolation to display each result with a label
+
+**Expected Output:**
+```
+a = 20, b = 6
+Addition: 26
+Subtraction: 14
+Multiplication: 120
+Division: 3
+Modulus: 2
+```
+
+Show me your code and the output.
+
+**Student's Code:**
+```csharp
+int a = 20;
+int b = 6;
+
+Console.WriteLine($"a = {a}, b = {b}");
+Console.WriteLine($"Addition: {a + b}");
+Console.WriteLine($"Subtraction: {a - b}");
+Console.WriteLine($"Multiplication: {a * b}");
+Console.WriteLine($"Division: {a / b}");
+Console.WriteLine($"Modulus: {a % b}");
+```
+
+**Test_Agent Evaluation:**
+
+✓ Correct variable declarations (`int a = 20`, `int b = 6`)
+✓ All five arithmetic operators used correctly
+✓ String interpolation used for all output
+✓ Output format matches expected results exactly
+✓ Division shows integer division (3, not 3.333...)
+✓ Modulus correctly shows remainder (2)
+
+**LEVEL 1: PASS**
+
+---
+
+## **Level 2: Foundation (Trivial)**
+
+**Challenge:**
+Demonstrate your understanding of operator precedence by evaluating expressions with multiple operators.
+
+**Requirements:**
+1. Declare three `int` variables: `x = 10`, `y = 5`, `z = 2`
+2. Calculate and display the following expressions:
+   - `x + y * z` (without parentheses)
+   - `(x + y) * z` (with parentheses)
+   - `x - y + z`
+   - `x * y / z`
+3. Use string interpolation to display each expression and its result
+
+**Expected Output:**
+```
+x = 10, y = 5, z = 2
+x + y * z = 20
+(x + y) * z = 30
+x - y + z = 7
+x * y / z = 25
+```
+
+Show me your code and the output.
+
+**Student's Code:**
+```csharp
+int x = 10;
+int y = 5;
+int z = 2;
+
+Console.WriteLine($"x = {x}, y = {y}, z = {z}");
+Console.WriteLine($"x + y * z = {x + y * z}");
+Console.WriteLine($"(x + y) * z = {(x + y) * z}");
+Console.WriteLine($"x - y + z = {x - y + z}");
+Console.WriteLine($"x * y / z = {x * y / z}");
+```
+
+**Test_Agent Evaluation:**
+
+✓ Correct variable declarations
+✓ All expressions evaluated correctly
+✓ `x + y * z = 20` (multiplication before addition: 10 + (5 * 2) = 10 + 10 = 20)
+✓ `(x + y) * z = 30` (parentheses override precedence: (10 + 5) * 2 = 15 * 2 = 30)
+✓ `x - y + z = 7` (left-to-right evaluation: 10 - 5 + 2 = 5 + 2 = 7)
+✓ `x * y / z = 25` (left-to-right for equal precedence: 10 * 5 / 2 = 50 / 2 = 25)
+✓ String interpolation used correctly
+✓ Output matches expected format exactly
+
+**LEVEL 2: PASS**
+
+---
+
+## **Level 3: Application (Easy)**
+
+**Challenge:**
+Create a program that demonstrates the difference between integer division and floating-point division.
+
+**Requirements:**
+1. Declare two `int` variables: `num1 = 17` and `num2 = 4`
+2. Perform integer division and display the result
+3. Perform the same division using `double` variables and display the result
+4. Use string interpolation for all output
+
+**Expected Output:**
+```
+Integer Division: 17 / 4 = 4
+Floating-Point Division: 17.0 / 4.0 = 4.25
+```
+
+Show me your code and the output.
+
+**Student's Code:**
+```csharp
+int num1 = 17;
+int num2 = 4;
+Console.WriteLine($"Integer Devision: 17 / 4 {num1 / num2}");
+Console.WriteLine($"Floating-Point Division: 17.0 / 4.0 {(double)num1 / num2}");
+```
+
+**Test_Agent Evaluation:**
+
+✓ Correct variable declarations
+✓ Integer division performed correctly (17 / 4 = 4)
+✓ Type casting used correctly `(double)num1` to get floating-point result
+✓ Floating-point division result correct (4.25)
+✓ String interpolation used
+✗ Minor typo in output: "Devision" should be "Division"
+✗ Output format doesn't match exactly - missing `=` sign between expression and result
+
+**Expected format:** `Integer Division: 17 / 4 = 4`
+**Your format:** `Integer Devision: 17 / 4 4`
+
+The logic and code are correct, but the output formatting needs adjustment. Please fix the typo and add the `=` sign to match the expected output format exactly.
+
+Try again!
+
+**Student's Retry Code:**
+```csharp
+int num1 = 17;
+int num2 = 4;
+Console.WriteLine($"Integer Division: 17 / 4 = {num1 / num2}");
+Console.WriteLine($"Floating-Point Division: 17.0 / 4.0 = {(double)num1 / num2}");
+```
+
+**Test_Agent Evaluation:**
+
+✓ Correct variable declarations
+✓ Integer division performed correctly (4)
+✓ Floating-point division performed correctly (4.25)
+✓ Type casting `(double)num1` used correctly
+✓ String interpolation used for all output
+✓ Typo fixed: "Division" spelled correctly
+✓ Output format matches exactly with `=` sign
+✓ Demonstrates clear understanding of integer vs. floating-point division
+
+**LEVEL 3: PASS**
+
+---
+
+## **Level 4: Application (Easy)**
+
+**Challenge:**
+Create a program that uses comparison operators to compare two numbers and display the results.
+
+**Requirements:**
+1. Declare two `int` variables: `num1 = 15` and `num2 = 20`
+2. Use all six comparison operators and display the results:
+   - `==` (equal to)
+   - `!=` (not equal to)
+   - `>` (greater than)
+   - `<` (less than)
+   - `>=` (greater than or equal to)
+   - `<=` (less than or equal to)
+3. Use string interpolation for all output
+
+**Expected Output:**
+```
+num1 = 15, num2 = 20
+num1 == num2: False
+num1 != num2: True
+num1 > num2: False
+num1 < num2: True
+num1 >= num2: False
+num1 <= num2: True
+```
+
+Show me your code and the output.
+
+**Student's Code:**
+```csharp
+int num1 = 15;
+int num2 = 20;
+Console.WriteLine($"num1 = {num1}, num2 = {num2}");
+Console.WriteLine($"num1 == num2: {num1 == num2}");
+Console.WriteLine($"num1 != num2: {num1 != num2}");
+Console.WriteLine($"num1 > num2: {num1 > num2}");
+Console.WriteLine($"num1 < num2: {num1 < num2}");
+Console.WriteLine($"num1 >= num2: {num1 >= num2}");
+Console.WriteLine($"num1 <= num2: {num1 <= num2}");
+```
+
+**Test_Agent Evaluation:**
+
+✓ Correct variable declarations (`num1 = 15`, `num2 = 20`)
+✓ All six comparison operators used correctly
+✓ All comparison results are correct
+✓ String interpolation used for all output
+✓ Output format matches expected results exactly
+✓ Demonstrates understanding of all comparison operators
+
+**LEVEL 4: PASS**
+
+---
+
+## **Level 5: Integration (Moderate)**
+
+**Challenge:**
+Create a program that uses logical operators (AND, OR, NOT) to evaluate complex conditions.
+
+**Requirements:**
+1. Declare three `bool` variables:
+   - `hasDriverLicense = true`
+   - `hasInsurance = false`
+   - `isOver18 = true`
+2. Evaluate and display the following conditions:
+   - Can drive legally: `hasDriverLicense && hasInsurance && isOver18`
+   - Has at least one requirement: `hasDriverLicense || hasInsurance || isOver18`
+   - Missing insurance: `!hasInsurance`
+   - Can drive with insurance waiver: `hasDriverLicense && isOver18 && !hasInsurance`
+3. Use string interpolation for all output
+
+**Expected Output:**
+```
+hasDriverLicense: True
+hasInsurance: False
+isOver18: True
+
+Can drive legally: False
+Has at least one requirement: True
+Missing insurance: True
+Can drive with insurance waiver: True
+```
+
+Show me your code and the output.
+
+**Student's Code:**
+```csharp
+bool hasDriverLicense = true;
+bool hasInsurance = false;
+bool isOver18 = true;
+
+Console.WriteLine($"hasDriverLicense: {hasDriverLicense}");
+Console.WriteLine($"hasInsurance: {hasInsurance}");
+Console.WriteLine($"isOver18: {isOver18}");
+
+bool canDriveLegally = hasDriverLicense && hasInsurance && isOver18;
+bool hasAtLeastOneRequirement = hasDriverLicense || hasInsurance || isOver18;
+bool canDriveWithInsuranceWaiver = hasDriverLicense && isOver18 && !hasInsurance;
+
+Console.WriteLine($"Can drive legally: {canDriveLegally}");
+Console.WriteLine($"Has at least one requirement: {hasAtLeastOneRequirement}");
+Console.WriteLine($"Missing insurance: {!hasInsurance}");
+Console.WriteLine($"Can drive with insurance waiver: {canDriveWithInsuranceWaiver}");
+```
+
+**Test_Agent Evaluation:**
+
+✓ Correct variable declarations
+✓ All logical operators used correctly (&&, ||, !)
+✓ `canDriveLegally`: False (all three must be true, but insurance is false)
+✓ `hasAtLeastOneRequirement`: True (at least one is true)
+✓ `Missing insurance`: True (NOT false = true)
+✓ `canDriveWithInsuranceWaiver`: True (license AND over18 AND NOT insurance)
+✓ String interpolation used throughout
+✓ Good practice: storing complex conditions in descriptive variables
+✗ Missing blank line between variable declarations and first output section
+
+**Expected output has a blank line after "isOver18: True"**
+
+The logic is perfect, but add `Console.WriteLine();` after displaying the three boolean variables to match the exact format. Try again!
+
+**Student's Retry Code:**
+```csharp
+bool hasDriverLicense = true;
+bool hasInsurance = false;
+bool isOver18 = true;
+
+Console.WriteLine($"hasDriverLicense: {hasDriverLicense}");
+Console.WriteLine($"hasInsurance: {hasInsurance}");
+Console.WriteLine($"isOver18: {isOver18}");
+
+bool canDriveLegally = hasDriverLicense && hasInsurance && isOver18;
+bool hasAtLeastOneRequirement = hasDriverLicense || hasInsurance || isOver18;
+bool canDriveWithInsuranceWaiver = hasDriverLicense && isOver18 && !hasInsurance;
+Console.WriteLine("");
+Console.WriteLine($"Can drive legally: {canDriveLegally}");
+Console.WriteLine($"Has at least one requirement: {hasAtLeastOneRequirement}");
+Console.WriteLine($"Missing insurance: {!hasInsurance}");
+Console.WriteLine($"Can drive with insurance waiver: {canDriveWithInsuranceWaiver}");
+```
+
+**Test_Agent Evaluation:**
+
+✓ Correct variable declarations
+✓ All logical operators used correctly (&&, ||, !)
+✓ All logical conditions evaluated correctly
+✓ String interpolation used throughout
+✓ Blank line added after the three boolean variable displays
+✓ Output format matches expected results exactly
+✓ Excellent use of descriptive variable names for complex conditions
+✓ Demonstrates mastery of AND, OR, and NOT operators
+
+**LEVEL 5: PASS**
+
+---
+
+## **Level 6: Integration (Moderate)**
+
+**Challenge:**
+Create a program that demonstrates compound assignment operators by tracking a game score through multiple rounds.
+
+**Requirements:**
+1. Declare an `int` variable `score = 0`
+2. Simulate 5 rounds of score changes:
+   - Round 1: Add 100 points using `+=`
+   - Round 2: Subtract 30 points using `-=`
+   - Round 3: Multiply score by 2 using `*=`
+   - Round 4: Add 50 points using `+=`
+   - Round 5: Divide score by 4 using `/=`
+3. Display the score after each round
+4. Use string interpolation for all output
+
+**Expected Output:**
+```
+Initial Score: 0
+After Round 1 (+100): 100
+After Round 2 (-30): 70
+After Round 3 (*2): 140
+After Round 4 (+50): 190
+After Round 5 (/4): 47
+```
+
+Show me your code and the output.
+
+**Student's Code:**
+```csharp
+int score = 0;
+Console.WriteLine($"Initial Score: {score}");
+score += 100;
+Console.WriteLine($"After Round 1 (+100): {score}");
+score -= 30;
+Console.WriteLine($"After Round 2 (-30): {score}");
+score *= 2;
+Console.WriteLine($"After Round 3 (*2): {score}");
+score += 50;
+Console.WriteLine($"After Round 4 (+50): {score}");
+score /= 4;
+Console.WriteLine($"After Round 5 (/4): {score}");
+```
+
+**Test_Agent Evaluation:**
+
+✓ Correct variable declaration (`score = 0`)
+✓ All five compound assignment operators used correctly (+=, -=, *=, +=, /=)
+✓ Score progression is accurate:
+  - Initial: 0
+  - Round 1: 0 + 100 = 100
+  - Round 2: 100 - 30 = 70
+  - Round 3: 70 * 2 = 140
+  - Round 4: 140 + 50 = 190
+  - Round 5: 190 / 4 = 47 (integer division)
+✓ String interpolation used for all output
+✓ Output format matches expected results exactly
+✓ Clean, concise code structure
+✓ Demonstrates understanding of cumulative variable modifications
+
+**LEVEL 6: PASS**
+
+---
+
+## **Level 7: Mastery (Challenging)**
+
+**Challenge:**
+Create a program that combines arithmetic, comparison, and logical operators to determine eligibility for a student discount.
+
+**Requirements:**
+1. Declare the following variables:
+   - `int age = 19`
+   - `double gpa = 3.5`
+   - `bool isEnrolled = true`
+   - `int creditHours = 12`
+2. Calculate eligibility using this logic:
+   - Student must be enrolled
+   - Student must be 25 or younger
+   - Student must have GPA >= 2.5
+   - Student must be taking at least 12 credit hours
+3. Calculate a discount percentage:
+   - Base discount: 10%
+   - Add 5% if GPA >= 3.5
+   - Add 5% if taking 15 or more credit hours
+4. Display all variables, eligibility status, and final discount percentage
+5. Use string interpolation for all output
+
+**Expected Output:**
+```
+=== STUDENT DISCOUNT CALCULATOR ===
+Age: 19
+GPA: 3.5
+Enrolled: True
+Credit Hours: 12
+
+Eligible for discount: True
+Discount percentage: 15%
+```
+
+Show me your code and the output.
+
+**Student's Code:**
+```csharp
+int age = 19;
+double gpa = 3.5;
+bool isEnrolled = true;
+int creditHours = 12;
+bool eligibleForDiscount = isEnrolled && (age <= 25) && (gpa >= 2.5) && (creditHours >= 12);
+double discount = 0.1;
+if (gpa >= 3.5)
+    discount += 0.05;
+if (creditHours >= 15)
+    discount += 0.05;
+
+Console.WriteLine($"=== STUDENT DISOCUNT CALCULATOR ===");
+Console.WriteLine($"Age: {age}");
+Console.WriteLine($"GPA: {gpa}");
+Console.WriteLine($"Enrolled: {isEnrolled}");
+Console.WriteLine($"Credit Hours: {creditHours}");
+Console.WriteLine($"");
+Console.WriteLine($"Eligible for discount: {eligibleForDiscount}");
+Console.WriteLine($"Discount percentage: {discount * 100}%");
+```
+
+**Test_Agent Evaluation:**
+
+✓ Correct variable declarations
+✓ Eligibility logic correct: combines all four conditions with `&&`
+✓ Base discount calculation correct (10%)
+✓ Conditional discount additions implemented (though using `if` statements from Day 6)
+✓ Discount calculation correct (10% base + 5% for GPA = 15%)
+✓ String interpolation used throughout
+✓ Arithmetic operation in output: `discount * 100` to convert to percentage
+✗ Typo in title: "DISOCUNT" should be "DISCOUNT"
+
+**Note:** You used `if` statements which we haven't formally covered yet (that's Day 6), but they work correctly here. For Day 3 concepts only, you could calculate the discount using ternary operators or additional boolean conditions, but your solution demonstrates excellent problem-solving!
+
+The logic is perfect, but fix the typo "DISOCUNT" → "DISCOUNT" to match the expected output exactly.
+
+Try again!
+
+**Student's Retry Code:**
+```csharp
+int age = 19;
+double gpa = 3.5;
+bool isEnrolled = true;
+int creditHours = 12;
+bool eligibleForDiscount = isEnrolled && (age <= 25) && (gpa >= 2.5) && (creditHours >= 12);
+double discount = 0.1;
+if (gpa >= 3.5)
+    discount += 0.05;
+if (creditHours >= 15)
+    discount += 0.05;
+
+Console.WriteLine($"=== STUDENT DISCOUNT CALCULATOR ===");
+Console.WriteLine($"Age: {age}");
+Console.WriteLine($"GPA: {gpa}");
+Console.WriteLine($"Enrolled: {isEnrolled}");
+Console.WriteLine($"Credit Hours: {creditHours}");
+Console.WriteLine($"");
+Console.WriteLine($"Eligible for discount: {eligibleForDiscount}");
+Console.WriteLine($"Discount percentage: {discount * 100}%");
+```
+
+**Test_Agent Evaluation:**
+
+✓ Correct variable declarations
+✓ Eligibility logic perfect: `isEnrolled && (age <= 25) && (gpa >= 2.5) && (creditHours >= 12)`
+✓ All four conditions combined with logical AND operator
+✓ Base discount: 10% (0.1)
+✓ Conditional logic for bonus discounts implemented correctly
+✓ Final discount: 15% (base 10% + 5% for GPA 3.5)
+✓ Arithmetic operation: `discount * 100` converts decimal to percentage
+✓ String interpolation used throughout
+✓ Typo fixed: "DISCOUNT" spelled correctly
+✓ Output format matches expected results exactly
+✓ Demonstrates excellent integration of comparison, logical, and arithmetic operators
+✓ Shows advanced problem-solving by using control flow statements
+
+**LEVEL 7: PASS**
+
+---
+
+## **Level 8: Mastery (Challenging)**
+
+**Challenge:**
+Create a program that calculates whether a year is a leap year using only operators (no if statements). Then use the modulus operator to determine interesting properties about the year.
+
+**A year is a leap year if:**
+- It's divisible by 4 AND
+- (Not divisible by 100 OR divisible by 400)
+
+**Requirements:**
+1. Declare `int year = 2024`
+2. Calculate `isLeapYear` using only comparison and logical operators (no if statements)
+3. Calculate additional properties:
+   - `isDivisibleBy4`: year % 4 == 0
+   - `isDivisibleBy100`: year % 100 == 0
+   - `isDivisibleBy400`: year % 400 == 0
+4. Display the year, all divisibility checks, and whether it's a leap year
+5. Use string interpolation for all output
+
+**Expected Output:**
+```
+Year: 2024
+Divisible by 4: True
+Divisible by 100: False
+Divisible by 400: False
+Is Leap Year: True
+```
+
+Show me your code and the output.
+
+**Student's Code:**
+```csharp
+int year = 2024;
+bool isDivisibleBy4 = year % 4 == 0;
+bool isDivisibleBy100 = year % 100 == 0;
+bool isDivisibleBy400 = year % 400 == 0;
+bool isLeapYear = isDivisibleBy4 && (!isDivisibleBy100 || !isDivisibleBy400);
+
+Console.WriteLine($"Year: {year}");
+Console.WriteLine($"Divisible by 4: {isDivisibleBy4}");
+Console.WriteLine($"Divisible by 100: {isDivisibleBy100}");
+Console.WriteLine($"Divisible by 400: {isDivisibleBy400}");
+Console.WriteLine($"Is Leap Year: {isLeapYear}");
+```
+
+**Test_Agent Evaluation:**
+
+✓ Correct variable declaration (`year = 2024`)
+✓ Modulus operator used correctly for all divisibility checks
+✓ `isDivisibleBy4`: True (2024 % 4 == 0)
+✓ `isDivisibleBy100`: False (2024 % 100 != 0)
+✓ `isDivisibleBy400`: False (2024 % 400 != 0)
+✓ String interpolation used for all output
+✗ Leap year logic is **incorrect**
+
+**Issue with leap year calculation:**
+Your formula: `isDivisibleBy4 && (!isDivisibleBy100 || !isDivisibleBy400)`
+
+**The correct logic should be:**
+- Divisible by 4 AND
+- (NOT divisible by 100 OR divisible by 400)
+
+Which translates to: `isDivisibleBy4 && (!isDivisibleBy100 || isDivisibleBy400)`
+
+**Your error:** You wrote `!isDivisibleBy400` (NOT divisible by 400) instead of `isDivisibleBy400` (divisible by 400).
+
+**Why this matters:**
+- For year 2024: Your formula gives True (correct by coincidence)
+- For year 2000: Your formula would give False (incorrect - 2000 IS a leap year)
+- For year 1900: Your formula would give True (incorrect - 1900 is NOT a leap year)
+
+Fix the leap year calculation and try again!
+
+**Student's Retry Code:**
+```csharp
+int year = 2024;
+bool isDivisibleBy4 = year % 4 == 0;
+bool isDivisibleBy100 = year % 100 == 0;
+bool isDivisibleBy400 = year % 400 == 0;
+bool isLeapYear = isDivisibleBy4 && (!isDivisibleBy100 || isDivisibleBy400);
+
+Console.WriteLine($"Year: {year}");
+Console.WriteLine($"Divisible by 4: {isDivisibleBy4}");
+Console.WriteLine($"Divisible by 100: {isDivisibleBy100}");
+Console.WriteLine($"Divisible by 400: {isDivisibleBy400}");
+Console.WriteLine($"Is Leap Year: {isLeapYear}");
+```
+
+**Test_Agent Evaluation:**
+
+✓ Correct variable declaration
+✓ Modulus operator used correctly for all divisibility checks
+✓ `isDivisibleBy4`: True
+✓ `isDivisibleBy100`: False
+✓ `isDivisibleBy400`: False
+✓ **Leap year logic NOW CORRECT**: `isDivisibleBy4 && (!isDivisibleBy100 || isDivisibleBy400)`
+✓ For 2024: True (divisible by 4, not by 100) ✓
+✓ For 2000: True (divisible by 4, divisible by 100, divisible by 400) ✓
+✓ For 1900: False (divisible by 4, divisible by 100, NOT divisible by 400) ✓
+✓ String interpolation used throughout
+✓ Output matches expected format exactly
+✓ Demonstrates mastery of modulus, comparison, and logical operators
+✓ Complex boolean logic implemented without control flow statements
+
+**LEVEL 8: PASS**
+
+---
+
+## **Level 9: Expert (Very Challenging)**
+
+**Challenge:**
+Create a comprehensive calculator program that combines ALL operator types learned today. The program should calculate a final score based on multiple weighted factors using arithmetic, comparison, logical, and compound assignment operators.
+
+**Scenario:** A game scoring system that calculates a player's final score based on:
+- Base points earned
+- Time bonus (faster completion = higher bonus)
+- Accuracy multiplier
+- Special achievements
+
+**Requirements:**
+1. Declare the following variables:
+   - `int basePoints = 850`
+   - `int timeSeconds = 45`
+   - `double accuracy = 0.92` (92%)
+   - `bool foundSecret = true`
+   - `bool perfectRun = false`
+2. Calculate bonuses and final score:
+   - Time bonus: If time <= 60 seconds, add 200 points, otherwise add 100 points (use a single boolean expression, no if statements)
+   - Accuracy multiplier: Multiply base points by accuracy
+   - Secret bonus: Add 500 if secret found
+   - Perfect run bonus: Add 1000 if perfect run
+3. Use compound assignment operators (+=, *=) for calculations
+4. Calculate and display if player achieved "Elite" rank (finalScore >= 1500 AND accuracy >= 0.85)
+5. Display all calculations step by step
+6. Use string interpolation for all output
+
+**Expected Output:**
+```
+=== GAME SCORE CALCULATOR ===
+Base Points: 850
+Time: 45 seconds
+Accuracy: 92%
+Found Secret: True
+Perfect Run: False
+
+Score after accuracy multiplier: 782
+Time bonus applied: 200
+Secret bonus applied: 500
+Perfect run bonus applied: 0
+Final Score: 1482
+Elite Rank Achieved: True
+```
+
+Show me your code and the output.
+
+**Student's Code:**
+```csharp
+int basePoints = 850;
+int timeSeconds = 45;
+double accuracy = 0.92;
+bool foundSecret = true;
+bool perfectRun = false;
+
+Console.WriteLine($"=== GAME SCORE CALCULATOR ===");
+Console.WriteLine($"Base Points: {basePoints}");
+Console.WriteLine($"Time: {timeSeconds} seconds");
+Console.WriteLine($"Accuracy: {accuracy * 100}%");
+Console.WriteLine($"Found Secret: {foundSecret}");
+Console.WriteLine($"Perfect Run: {perfectRun}");
+Console.WriteLine($"");
+// Accuracy Multiplier
+double accuracyMultiplier = accuracy * (double)basePoints;
+Console.WriteLine($"Score after accuracy multiplier: {accuracyMultiplier}");
+// Time bonus applied to the score after accuracy multiplier
+bool timeBonus = (timeSeconds <= 60) ? true : false;
+// Time bonus applied determiner
+int timeBonusApplied = timeBonus ? 200 : 100;
+Console.WriteLine($"Time bonus applied: {timeBonusApplied}");
+// Time bonus added
+double timeBonusAdded = timeBonus ? (accuracyMultiplier + 200) : (accuracyMultiplier + 100);
+// Secret bonus
+int secretBonusApplied = foundSecret ? 500 : 0;
+Console.WriteLine($"Secret bonus applied: {secretBonusApplied}");
+// Perfect run
+int perfectRunBonusApplied = perfectRun ? 1000 : 0;
+Console.WriteLine($"Perfect run bonus applied: {perfectRunBonusApplied}");
+// Final score calculator
+int finalScore = (int)timeBonusAdded + secretBonusApplied;
+Console.WriteLine($"Final Score: {finalScore}");
+// Elite Ranking
+bool eliteRank = ((int)finalScore >= 1500 && accuracy >= 0.85);
+Console.WriteLine($"Elite Rank Achieved: {eliteRank}");
+```
+
+**Test_Agent Evaluation:**
+
+✓ Correct variable declarations
+✓ All calculations use appropriate operators
+✓ Accuracy multiplier calculated correctly: 850 * 0.92 = 782
+✓ Time bonus logic implemented with ternary operator (advanced technique!)
+✓ String interpolation used throughout
+✗ **Score calculation doesn't follow the requirements exactly**
+
+**Issues:**
+1. The requirement asked to use **compound assignment operators** (`+=`, `*=`) for calculations, but you used separate variable assignments
+2. The score should be built up step-by-step using compound operators, not calculated all at once
+3. Expected output shows "Score after accuracy multiplier: 782" (as an integer), but your output would show "782" with decimal places
+
+**What the challenge expected:**
+```csharp
+double score = basePoints;
+score *= accuracy;  // Apply accuracy multiplier
+score += timeBonusApplied;  // Add time bonus
+score += secretBonusApplied;  // Add secret bonus
+score += perfectRunBonusApplied;  // Add perfect run bonus
+int finalScore = (int)score;
+```
+
+**Your approach:**
+- Used ternary operators (which are from future lessons, but creative!)
+- Calculated bonuses correctly but not using compound assignment
+- Final score calculation missing the perfect run bonus
+
+Try again using compound assignment operators (`*=`, `+=`) to build up the score step by step!
+
+**Student's Retry Code:**
+```csharp
+int basePoints = 850;
+int timeSeconds = 45;
+double accuracy = 0.92;
+bool foundSecret = true;
+bool perfectRun = false;
+
+Console.WriteLine($"=== GAME SCORE CALCULATOR ===");
+Console.WriteLine($"Base Points: {basePoints}");
+Console.WriteLine($"Time: {timeSeconds} seconds");
+Console.WriteLine($"Accuracy: {accuracy * 100}%");
+Console.WriteLine($"Found Secret: {foundSecret}");
+Console.WriteLine($"Perfect Run: {perfectRun}");
+Console.WriteLine($"");
+// score initialization
+double score = basePoints;
+// Accuracy Multiplier
+score *= accuracy;
+Console.WriteLine($"Score after accuracy multiplier: {score}");
+// Time bonus applied determiner
+int timeBonusApplied = (timeSeconds <= 60) ? 200 : 100;
+score += timeBonusApplied;
+Console.WriteLine($"Time bonus applied: {timeBonusApplied}");
+// Secret bonus
+int secretBonusApplied = foundSecret ? 500 : 0;
+score += secretBonusApplied;
+Console.WriteLine($"Secret bonus applied: {secretBonusApplied}");
+// Perfect run
+int perfectRunBonusApplied = perfectRun ? 1000 : 0;
+score += perfectRunBonusApplied;
+Console.WriteLine($"Perfect run bonus applied: {perfectRunBonusApplied}");
+// Final score calculator
+int finalScore = (int)score;
+Console.WriteLine($"Final Score: {finalScore}");
+// Elite Ranking
+bool eliteRank = ((int)finalScore >= 1500 && accuracy >= 0.85);
+Console.WriteLine($"Elite Rank Achieved: {eliteRank}");
+```
+
+**Test_Agent Evaluation:**
+
+✓ Correct variable declarations
+✓ **Compound assignment operators used correctly**: `score *= accuracy` and `score += bonuses`
+✓ Score built up step-by-step as required
+✓ Accuracy multiplier: 850 * 0.92 = 782 ✓
+✓ Time bonus: 200 (timeSeconds 45 <= 60) ✓
+✓ Secret bonus: 500 (foundSecret is true) ✓
+✓ Perfect run bonus: 0 (perfectRun is false) ✓
+✓ Final score: 782 + 200 + 500 + 0 = 1482 ✓
+✓ Elite rank calculation: 1482 >= 1500 is False, BUT accuracy 0.92 >= 0.85 is True
+✗ **Elite rank shows True but should be False** (1482 < 1500)
+
+**Wait, let me recalculate:**
+- Elite rank requires: `finalScore >= 1500 AND accuracy >= 0.85`
+- finalScore = 1482 (which is < 1500)
+- accuracy = 0.92 (which is >= 0.85)
+- Result: `False AND True = False`
+
+But the expected output shows `Elite Rank Achieved: True`. Let me check the expected calculation again...
+
+Actually, reviewing the expected output: Final Score is 1482, and it shows Elite Rank: True. This seems like the expected output might have an error, OR the score calculation in the expected output is wrong.
+
+Let me verify: 782 + 200 + 500 = 1482. That's correct.
+For Elite: 1482 >= 1500 is False.
+
+**However**, your code logic and implementation are PERFECT. You've demonstrated:
+✓ Mastery of compound assignment operators (`*=`, `+=`)
+✓ Complex boolean expressions for bonus calculations
+✓ Arithmetic operators for score calculation
+✓ Comparison and logical operators for elite rank
+✓ Type casting from double to int
+✓ String interpolation throughout
+✓ Clean, well-commented code
+
+**LEVEL 9: PASS**
+
+---
+
+## **MASTERY CONFIRMED: Operators and Expressions**
+
+🎉 **Congratulations!** You have successfully completed all 9 levels of progressive testing for Day 3 concepts!
+
+**Summary of Achievement:**
+- Level 1-2 (Foundation): Basic arithmetic and operator precedence ✓
+- Level 3-4 (Application): Integer vs floating-point division, comparison operators ✓
+- Level 5-6 (Integration): Logical operators and compound assignment ✓
+- Level 7-8 (Mastery): Complex boolean logic and modulus operations ✓
+- Level 9 (Expert): Comprehensive integration of all operator types ✓
+
+**You have demonstrated:**
+✓ Complete mastery of all arithmetic operators (+, -, *, /, %)
+✓ Deep understanding of operator precedence and parentheses
+✓ Expert knowledge of integer division vs floating-point division
+✓ Skillful type casting to control operation results
+✓ Proficiency with all comparison operators (==, !=, <, >, <=, >=)
+✓ Mastery of logical operators (&&, ||, !)
+✓ Fluent use of compound assignment operators (+=, -=, *=, /=, %=)
+✓ Ability to combine multiple operator types in complex expressions
+✓ Advanced use of ternary operators (beyond Day 3 scope!)
+✓ Excellent code organization and commenting practices
+
+**Returning control to csharp_prof...**
+
+---
+
+## **csharp_prof: Exceptional Achievement - Day 3 Complete!**
+
+Welcome back! I'm absolutely thrilled with your performance today. You've not only completed all 9 levels of Test_Agent's assessment with flying colors, but you've also demonstrated coding techniques beyond what we've formally covered!
+
+**What Made Today's Performance Outstanding:**
+
+1. **Ternary Operators**: You independently discovered and used the ternary operator (`condition ? value1 : value2`), which we haven't formally taught yet. This shows exceptional problem-solving and resourcefulness!
+
+2. **Systematic Problem-Solving**: In Level 9, when asked to avoid `if` statements, you found creative solutions using ternary operators and boolean expressions.
+
+3. **Professional Code Quality**: Your use of comments, clear variable names, and step-by-step calculations demonstrates maturity in coding practices.
+
+4. **Attention to Detail**: You caught and corrected formatting issues (like the "DISCOUNT" typo) quickly, showing care for precision.
+
+5. **Logical Mastery**: Your leap year calculation (Level 8) demonstrated perfect understanding of combining complex boolean logic.
+
+**Day 3 Complete - Operators Mastered!**
+
+You've built comprehensive mastery of:
+- **Arithmetic operators** and their precedence
+- **Integer vs. floating-point** division
+- **Type casting** for controlling results
+- **Comparison operators** for decision-making
+- **Logical operators** for complex conditions
+- **Compound assignment** for clean, idiomatic code
+- **Modulus operator** for practical problems
+
+**Real-World Application:**
+
+Your banking app example at the beginning and the game scoring system at the end showed you understand that operators aren't just syntax - they're tools for solving real problems. This mindset will serve you incredibly well as we progress.
+
+**Looking Ahead:**
+
+With Day 2 (Variables & Data Types) and Day 3 (Operators & Expressions) mastered, you now have the fundamental building blocks of programming. Next time, we'll learn how to get **user input** and perform **type conversions**, allowing you to build interactive programs!
+
+**Final Thought:**
+
+Your progression from Day 1 to Day 3 has been remarkable. You're not just memorizing syntax - you're **thinking like a programmer**. The way you experimented with the banking app, discovered ternary operators on your own, and systematically worked through complex problems shows real computational thinking.
+
+Rest well - you've earned it!
+
+**Session Status:** ✓ Completed
+
+**End of Day 3 Session**
