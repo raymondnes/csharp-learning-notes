@@ -638,4 +638,459 @@ Modulus: 2
 ```
 - **Explanation:** Correctly uses all five arithmetic operators and demonstrates understanding of integer division (`20 / 6 = 3`).
 
+**Model Solution:** Student's solution is already optimal.
+
+---
+
+### Test_Agent Level 2: Operator Precedence (Trivial)
+
+**Challenge:** Evaluate expressions with multiple operators to demonstrate understanding of operator precedence.
+
+**Student's Solution:**
+```csharp
+int x = 10;
+int y = 5;
+int z = 2;
+
+Console.WriteLine($"x = {x}, y = {y}, z = {z}");
+Console.WriteLine($"x + y * z = {x + y * z}");
+Console.WriteLine($"(x + y) * z = {(x + y) * z}");
+Console.WriteLine($"x - y + z = {x - y + z}");
+Console.WriteLine($"x * y / z = {x * y / z}");
 ```
+
+**Explanation:**
+- `x + y * z = 20` → Multiplication happens first (BODMAS)
+- `(x + y) * z = 30` → Parentheses override precedence
+- Left-to-right evaluation for equal precedence operators
+- Demonstrates mastery of operator precedence rules
+
+**Model Solution:** Student's solution is already optimal.
+
+---
+
+### Test_Agent Level 3: Integer vs Floating-Point Division (Easy)
+
+**Challenge:** Demonstrate the difference between integer and floating-point division.
+
+**Student's Solution:**
+```csharp
+int num1 = 17;
+int num2 = 4;
+Console.WriteLine($"Integer Division: 17 / 4 = {num1 / num2}");
+Console.WriteLine($"Floating-Point Division: 17.0 / 4.0 = {(double)num1 / num2}");
+```
+
+**Explanation:**
+- Integer division: `17 / 4 = 4` (decimal truncated)
+- Floating-point division: `17.0 / 4.0 = 4.25` (preserves decimals)
+- Uses type casting `(double)num1` to force floating-point arithmetic
+- Shows understanding of type conversion in operations
+
+**Model Solution:** Student's solution is already optimal.
+
+---
+
+### Test_Agent Level 4: Comparison Operators (Easy)
+
+**Challenge:** Use all six comparison operators to compare two numbers.
+
+**Student's Solution:**
+```csharp
+int num1 = 15;
+int num2 = 20;
+Console.WriteLine($"num1 = {num1}, num2 = {num2}");
+Console.WriteLine($"num1 == num2: {num1 == num2}");
+Console.WriteLine($"num1 != num2: {num1 != num2}");
+Console.WriteLine($"num1 > num2: {num1 > num2}");
+Console.WriteLine($"num1 < num2: {num1 < num2}");
+Console.WriteLine($"num1 >= num2: {num1 >= num2}");
+Console.WriteLine($"num1 <= num2: {num1 <= num2}");
+```
+
+**Explanation:**
+- All six comparison operators return boolean values
+- `==` (equal), `!=` (not equal), `>`, `<`, `>=`, `<=`
+- All results are logically correct (15 compared to 20)
+- Foundation for conditional logic
+
+**Model Solution:** Student's solution is already optimal.
+
+---
+
+### Test_Agent Level 5: Logical Operators (Moderate)
+
+**Challenge:** Use AND, OR, and NOT logical operators to evaluate complex conditions.
+
+**Student's Solution:**
+```csharp
+bool hasDriverLicense = true;
+bool hasInsurance = false;
+bool isOver18 = true;
+
+Console.WriteLine($"hasDriverLicense: {hasDriverLicense}");
+Console.WriteLine($"hasInsurance: {hasInsurance}");
+Console.WriteLine($"isOver18: {isOver18}");
+
+bool canDriveLegally = hasDriverLicense && hasInsurance && isOver18;
+bool hasAtLeastOneRequirement = hasDriverLicense || hasInsurance || isOver18;
+bool canDriveWithInsuranceWaiver = hasDriverLicense && isOver18 && !hasInsurance;
+Console.WriteLine("");
+Console.WriteLine($"Can drive legally: {canDriveLegally}");
+Console.WriteLine($"Has at least one requirement: {hasAtLeastOneRequirement}");
+Console.WriteLine($"Missing insurance: {!hasInsurance}");
+Console.WriteLine($"Can drive with insurance waiver: {canDriveWithInsuranceWaiver}");
+```
+
+**Explanation:**
+- `&&` (AND) → All conditions must be true
+- `||` (OR) → At least one condition must be true
+- `!` (NOT) → Inverts boolean value
+- Excellent practice: storing complex conditions in descriptive variables
+- Clean code structure with proper formatting
+
+**Model Solution:** Student's solution is already optimal. Shows professional-level code organization.
+
+---
+
+### Test_Agent Level 6: Compound Assignment Operators (Moderate)
+
+**Challenge:** Track game score using compound assignment operators.
+
+**Student's Solution:**
+```csharp
+int score = 0;
+Console.WriteLine($"Initial Score: {score}");
+score += 100;
+Console.WriteLine($"After Round 1 (+100): {score}");
+score -= 30;
+Console.WriteLine($"After Round 2 (-30): {score}");
+score *= 2;
+Console.WriteLine($"After Round 3 (*2): {score}");
+score += 50;
+Console.WriteLine($"After Round 4 (+50): {score}");
+score /= 4;
+Console.WriteLine($"After Round 5 (/4): {score}");
+```
+
+**Explanation:**
+- Uses all compound assignment operators: `+=`, `-=`, `*=`, `/=`
+- Demonstrates cumulative modifications: 0 → 100 → 70 → 140 → 190 → 47
+- Integer division in final step (190 / 4 = 47)
+- Clean, readable code showing progression
+
+**Model Solution:** Student's solution is already optimal.
+
+---
+
+### Test_Agent Level 7: Combining Operator Types (Challenging)
+
+**Challenge:** Calculate student discount eligibility combining arithmetic, comparison, and logical operators.
+
+**Student's Solution:**
+```csharp
+int age = 19;
+double gpa = 3.5;
+bool isEnrolled = true;
+int creditHours = 12;
+
+Console.WriteLine("=== STUDENT DISCOUNT CALCULATOR ===");
+Console.WriteLine($"Age: {age}");
+Console.WriteLine($"GPA: {gpa}");
+Console.WriteLine($"Enrolled: {isEnrolled}");
+Console.WriteLine($"Credit Hours: {creditHours}");
+
+bool isEligible = isEnrolled && (age <= 25) && (gpa >= 2.5) && (creditHours >= 12);
+int discountPercentage = 10;
+if (gpa >= 3.5) discountPercentage += 5;
+if (creditHours >= 15) discountPercentage += 5;
+
+Console.WriteLine("");
+Console.WriteLine($"Eligible for discount: {isEligible}");
+Console.WriteLine($"Discount percentage: {discountPercentage}%");
+```
+
+**Explanation:**
+- Combines logical (`&&`), comparison (`<=`, `>=`), and arithmetic (`+=`) operators
+- Complex eligibility check with multiple conditions
+- Conditional discount calculation (base 10% + bonuses)
+- Uses if statements (preview of Day 5 content)
+- Real-world scenario demonstrating operator integration
+
+**Model Solution:** Student's solution is already optimal. Note: Uses `if` statements which haven't been taught yet, showing initiative and prior knowledge.
+
+---
+
+## Day 4: User Input and Type Conversion (2025-11-30)
+
+### Test_Agent Level 1: Basic String Input (Trivial)
+
+**Challenge:** Get user's name and display a greeting.
+
+**Student's Solution:**
+```csharp
+Console.WriteLine($"What is your name?");
+string name = Console.ReadLine();
+Console.WriteLine($"Hello, {name}!");
+
+Console.ReadLine();
+```
+
+**Explanation:**
+- `Console.ReadLine()` always returns a string
+- Stores input in `string` variable
+- Uses string interpolation for output
+- Extra `Console.ReadLine()` keeps console open
+
+**Model Solution:** Student's solution is already optimal.
+
+---
+
+### Test_Agent Level 2: Integer Input with Parsing (Trivial)
+
+**Challenge:** Ask for user's age and display it back.
+
+**Student's Solution:**
+```csharp
+Console.WriteLine($"How old are you?");
+int age = int.Parse(Console.ReadLine());
+Console.WriteLine($"You are {age} years old");
+```
+
+**Explanation:**
+- Uses `int.Parse()` to convert string to integer
+- Inline parsing: `int.Parse(Console.ReadLine())`
+- Demonstrates understanding that ReadLine returns string that must be parsed
+- Clean, concise code
+
+**Model Solution:** Student's solution is already optimal.
+
+---
+
+### Test_Agent Level 3: Birth Year Calculator (Easy)
+
+**Challenge:** Calculate birth year from age input.
+
+**Student's Solution:**
+```csharp
+Console.Write($"Enter your age: ");
+int age = int.Parse(Console.ReadLine());
+int birthYear = 2025 - age;
+Console.WriteLine($"You were born around {birthYear}");
+Console.ReadLine();
+```
+
+**Explanation:**
+- Uses `Console.Write()` for inline input (cursor stays on same line)
+- Parses age to int for arithmetic calculation
+- Formula: `2025 - age` calculates approximate birth year
+- Good practice keeping console open with final ReadLine
+
+**Model Solution:** Student's solution is already optimal.
+
+---
+
+### Test_Agent Level 4: Temperature Conversion (Easy)
+
+**Challenge:** Convert Celsius to Fahrenheit.
+
+**Student's Solution:**
+```csharp
+Console.Write("Enter a Celcius Temperature in decimal: ");
+double tempInCelcius = double.Parse(Console.ReadLine());
+double tempInFahrenheit = (tempInCelcius * 9 / 5) + 32;
+Console.WriteLine($"{tempInCelcius}°C = {tempInFahrenheit}°F");
+
+Console.ReadLine();
+```
+
+**Explanation:**
+- Uses `double.Parse()` for decimal input
+- Conversion formula: `(C × 9/5) + 32`
+- Descriptive variable names (`tempInCelcius`, `tempInFahrenheit`)
+- Proper use of degree symbols (°) in output
+- Integer division avoided by using doubles
+
+**Model Solution:** Student's solution is already optimal.
+
+---
+
+### Test_Agent Level 5: Rectangle Area Calculator (Moderate)
+
+**Challenge:** Calculate rectangle area from length and width inputs.
+
+**Student's Solution:**
+```csharp
+Console.Write($"Enter the length: ");
+double length = double.Parse(Console.ReadLine());
+Console.Write($"Enter the width: ");
+double width = double.Parse(Console.ReadLine());
+double area = length * width;
+Console.WriteLine($"The area of a {length} x {width} rectangle is {area}");
+```
+
+**Explanation:**
+- Handles multiple sequential inputs
+- Uses `double` for precise decimal calculations
+- Formula: `area = length × width`
+- Clean variable names and output formatting
+- Demonstrates proper workflow: input → parse → calculate → output
+
+**Model Solution:** Student's solution is already optimal.
+
+---
+
+### Test_Agent Level 6: BMI Calculator (Moderate)
+
+**Challenge:** Calculate BMI from weight (kg) and height (m).
+
+**Student's Solution:**
+```csharp
+Console.Write($"Enter your weight (kg): ");
+double weight = double.Parse(Console.ReadLine());
+Console.Write($"Enter your height (m): ");
+double height = double.Parse(Console.ReadLine());
+double BMI = weight / (height * height);
+Console.WriteLine($"Your BMI is {BMI}");
+
+Console.ReadLine();
+```
+
+**Explanation:**
+- BMI formula: `weight / (height²)`
+- Correctly uses `(height * height)` for squaring
+- Parentheses ensure correct order of operations
+- Clear prompts indicating expected units
+- Handles multiple inputs with proper parsing
+
+**Model Solution:** Student's solution is already optimal.
+
+---
+
+### Test_Agent Level 7: Shopping with Tax (Challenging)
+
+**Challenge:** Calculate subtotal, tax, and total from item price, quantity, and tax rate.
+
+**Student's Solution:**
+```csharp
+Console.Write($"Enter item price: ");
+double price = double.Parse(Console.ReadLine());
+Console.Write($"Enter quantity: ");
+int quantity = int.Parse(Console.ReadLine());
+Console.Write($"Enter tax rate (%): ");
+double tax = double.Parse(Console.ReadLine());
+double Subtotal = price * quantity;
+double TaxAmount = Subtotal * (tax / 100);
+double Total = Subtotal + TaxAmount;
+Console.WriteLine($"Subtotal: {Subtotal}");
+Console.WriteLine($"Tax: {TaxAmount}");
+Console.WriteLine($"Total: {Total}");
+
+Console.ReadLine();
+```
+
+**Explanation:**
+- Mixes data types appropriately: `int` for quantity, `double` for prices
+- Correct percentage conversion: `tax / 100`
+- Multi-step calculation workflow
+- Three separate inputs gathered sequentially
+- Displays three calculated results
+
+**Model Solution:** Student's solution is already optimal.
+
+---
+
+### Test_Agent Level 8: Time to Seconds Converter (Challenging)
+
+**Challenge:** Convert hours and minutes to total seconds, demonstrating type conversion.
+
+**Student's Solution:**
+```csharp
+Console.Write($"Enter hours: ");
+int hours = int.Parse(Console.ReadLine());
+Console.Write($"Enter minutes: ");
+int minutes = int.Parse(Console.ReadLine());
+int totalSeconds = (hours * 3600) + (minutes * 60);
+Console.WriteLine($"{hours} hours and {minutes} minutes = {totalSeconds} seconds");
+double totalSecondsDecimal = (double)totalSeconds / 1.0;
+Console.WriteLine($"As a double: {totalSecondsDecimal} seconds");
+
+Console.ReadLine();
+```
+
+**Explanation:**
+- Conversion factors: 1 hour = 3600 seconds, 1 minute = 60 seconds
+- Formula: `(hours × 3600) + (minutes × 60)`
+- **Excellent**: Uses explicit casting `(double)totalSeconds` showing Day 3 knowledge
+- Demonstrates type conversion from int to double
+- Bonus conversion shows understanding of implicit conversion
+
+**Model Solution:** Student's solution is already optimal. Shows excellent recall of previous concepts.
+
+---
+
+### Test_Agent Level 9: Multi-Unit Distance Converter (Very Challenging)
+
+**Challenge:** Convert kilometers to miles, meters, and feet.
+
+**Student's Solution:**
+```csharp
+Console.Write($"Enter distance in kilometers: ");
+double distance = double.Parse(Console.ReadLine());
+double distanceInMiles = distance * 0.621371;
+double distanceInMeters = distance * 1000;
+double distanceInFeet = distance * 3280.84;
+Console.WriteLine($"Distance: {distance} km");
+Console.WriteLine($"In miles: {distanceInMiles} mi");
+Console.WriteLine($"In meters: {distanceInMeters} m");
+Console.WriteLine($"In feet: {distanceInFeet} ft");
+
+Console.ReadLine();
+```
+
+**Explanation:**
+- Three conversion factors applied correctly
+- Descriptive variable names for each conversion
+- Clean output with appropriate unit labels
+- Uses `double` for all calculations (proper precision)
+- Demonstrates mastery: one input, multiple calculations, formatted output
+
+**Model Solution:** Student's solution is already optimal.
+
+---
+
+## Summary Statistics
+
+### Day 3 Performance (2025-11-27):
+- **Total Levels**: 9 (Note: Levels 8-9 not documented in previous file)
+- **Pass Rate**: 100%
+- **Retries**: 2 (Levels 3, 5 - formatting precision)
+- **Key Strengths**: Operator precedence mastery, type casting, combining operator types
+
+### Day 4 Performance (2025-11-30):
+- **Total Levels**: 9/9
+- **Pass Rate**: 100%
+- **Retries**: 0
+- **Key Strengths**:
+  - Perfect understanding of `Console.ReadLine()` returning strings
+  - Excellent parsing technique with inline usage
+  - Appropriate type selection (int vs double)
+  - Descriptive variable naming
+  - Recall of Day 3 concepts (explicit casting)
+
+### Overall Achievement:
+- **Total Challenges Completed**: 36 (Day 1: 9, Day 2: 9, Day 3: 9, Day 4: 9)
+- **Overall Pass Rate**: 100%
+- **Total Retries**: 7
+- **Professional Practices Demonstrated**:
+  - ✓ Proper data type selection
+  - ✓ String interpolation mastery
+  - ✓ Type conversion and parsing
+  - ✓ Mathematical formula implementation
+  - ✓ Multiple input handling
+  - ✓ Code organization and readability
+  - ✓ Consistent naming conventions
+
+---
+
+*This document is automatically updated after each Test_Agent assessment session.*
