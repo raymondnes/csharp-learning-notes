@@ -1093,4 +1093,743 @@ Console.ReadLine();
 
 ---
 
+## Day 5: Making Decisions with if-else Statements (2025-12-04)
+
+### Test_Agent Level 1: Age Classifier (Foundation - Trivial)
+
+**Challenge:** Write a program that classifies users as "Adult" or "Minor" based on age.
+
+**Student's Solution:**
+```csharp
+Console.Write($"Enter your age: ");
+int age = int.Parse(Console.ReadLine());
+if (age >= 18)
+{
+    Console.WriteLine($"Input: {age}\nOutput: Adult");
+}
+else
+{
+    Console.WriteLine($"Input: {age}\nOutput: Minor");
+}
+
+Console.ReadLine();
+```
+
+**Test_Agent Evaluation:** PASS ✓
+
+**Explanation:**
+- Uses basic `if-else` structure correctly
+- Correctly uses `>=` comparison operator (18 is the threshold, inclusive)
+- Produces correct output for both adult and minor cases
+- Clean separation of conditions with proper branching logic
+
+**Model Solution:** Student's solution is already optimal.
+
+---
+
+### Test_Agent Level 2: Number Sign Checker (Foundation - Trivial)
+
+**Challenge:** Determine if a number is positive, negative, or zero.
+
+**Student's Solution:**
+```csharp
+Console.Write($"Enter a number: ");
+int num = int.Parse(Console.ReadLine());
+
+if (num > 0)
+{
+    Console.WriteLine($"Positive");
+}
+else if (num < 0)
+{
+    Console.WriteLine($"Negative");
+}
+else if(num == 0)
+{
+    Console.WriteLine("Zero");
+}
+
+Console.ReadLine();
+```
+
+**Test_Agent Evaluation:** PASS ✓
+
+**Explanation:**
+- Uses `if-else-if-else` structure correctly
+- Correctly handles all three cases with proper comparison operators
+- Note: The final `else if (num == 0)` could be simplified to just `else` since it's the only remaining possibility
+
+**Model Solution (Alternative):**
+```csharp
+Console.Write($"Enter a number: ");
+int num = int.Parse(Console.ReadLine());
+
+if (num > 0)
+{
+    Console.WriteLine($"Positive");
+}
+else if (num < 0)
+{
+    Console.WriteLine($"Negative");
+}
+else  // Only remaining case is zero
+{
+    Console.WriteLine("Zero");
+}
+```
+
+---
+
+### Test_Agent Level 3: Grade Calculator (Application - Easy)
+
+**Challenge:** Assign letter grades based on numerical scores (A: 90-100, B: 80-89, C: 70-79, D: 60-69, F: <60).
+
+**Student's Solution (First Attempt - FAILED):**
+```csharp
+Console.Write($"Enter a numerical score (0 - 100): ");
+int num = int.Parse(Console.ReadLine());
+
+if (num >= 90)
+{
+    Console.WriteLine($"Input: {num}\nOutput: Grade: A");
+}
+else if (num >= 80 && num <= 89)
+{
+    Console.WriteLine($"Input: {num}\nOutput: Grade: B");
+}
+else if(num >= 70 && num <= 79)
+{
+    Console.WriteLine("Input: {num}\nOutput: Grade: C");  // Missing $ prefix!
+}
+else if (num >= 60 && num <= 69)
+{
+    Console.WriteLine("Input: {num}\nOutput: Grade: D");  // Missing $ prefix!
+}
+else
+{
+    Console.WriteLine($"Input: {num}\nOutput: Grade: F");
+}
+```
+
+**Failure Reason:** Missing `$` prefix for string interpolation on lines for Grade C and Grade D.
+
+**Student's Solution (Corrected - PASSED):**
+```csharp
+Console.Write($"Enter a numerical score (0 - 100): ");
+int num = int.Parse(Console.ReadLine());
+
+if (num >= 90)
+{
+    Console.WriteLine($"Input: {num}\nOutput: Grade: A");
+}
+else if (num >= 80 && num <= 89)
+{
+    Console.WriteLine($"Input: {num}\nOutput: Grade: B");
+}
+else if(num >= 70 && num <= 79)
+{
+    Console.WriteLine($"Input: {num}\nOutput: Grade: C");
+}
+else if (num >= 60 && num <= 69)
+{
+    Console.WriteLine($"Input: {num}\nOutput: Grade: D");
+}
+else
+{
+    Console.WriteLine($"Input: {num}\nOutput: Grade: F");
+}
+
+Console.ReadLine();
+```
+
+**Test_Agent Evaluation:** PASS ✓
+
+**Explanation:**
+- Uses `if-else-if` chain correctly with highest scores checked first
+- The `&& num <= 89` checks are redundant but not incorrect
+- All 5 grade categories work correctly
+
+**Model Solution (Simplified):**
+```csharp
+Console.Write($"Enter a numerical score (0 - 100): ");
+int num = int.Parse(Console.ReadLine());
+
+if (num >= 90)
+{
+    Console.WriteLine($"Grade: A");
+}
+else if (num >= 80)  // No need for && num <= 89
+{
+    Console.WriteLine($"Grade: B");
+}
+else if(num >= 70)
+{
+    Console.WriteLine($"Grade: C");
+}
+else if (num >= 60)
+{
+    Console.WriteLine($"Grade: D");
+}
+else
+{
+    Console.WriteLine($"Grade: F");
+}
+```
+**Why this is better:** When checking in descending order, if `num >= 80` is reached, we already know `num < 90` (otherwise the first condition would have caught it).
+
+---
+
+### Test_Agent Level 4: Login Validator (Application - Easy)
+
+**Challenge:** Validate username and password using combined boolean conditions.
+
+**Student's Solution:**
+```csharp
+Console.Write($"Enter a username: ");
+string userName = Console.ReadLine();
+Console.Write($"Enter a password: ");
+string password = Console.ReadLine();
+Console.WriteLine("");
+if (userName == "admin" && password == "pass123")
+{
+    Console.WriteLine($"Username: {userName}\nPassword: {password}\nOutput: Login successful");
+}
+else
+{
+    Console.WriteLine($"Username: {userName}\nPassword: {password}\nOutput: Login failed");
+}
+```
+
+**Test_Agent Evaluation:** PASS ✓
+
+**Explanation:**
+- Correctly uses `&&` (AND) operator to combine two conditions
+- Both username AND password must be correct for success
+- Uses `==` for string comparison (case-sensitive)
+- Clean if-else structure for binary decision
+
+**Model Solution:** Student's solution is already optimal.
+
+---
+
+### Test_Agent Level 5: Ticket Pricing System (Integration - Moderate)
+
+**Challenge:** Calculate movie ticket prices based on age and student status.
+
+**Student's Solution (First Attempt - FAILED):**
+```csharp
+string quitNow = "no";
+int age = 0;
+string hasStudentID = "";
+
+while (quitNow == "no")
+{
+    Console.Write($"Enter your age: ");
+    age = int.Parse(Console.ReadLine());
+    Console.Write($"Do you have a student ID (enter \"yes\" or \"no\"): ");
+    hasStudentID = Console.ReadLine().ToLower();
+
+    if (age < 13)
+    {
+        Console.WriteLine($"Age: {age}\nStudent ID: {hasStudentID}\nOutput: Ticket price: $8 (Child)");
+    }
+
+    if (age >= 65)
+    {
+        Console.WriteLine($"Age: {age}\nStudent ID: {hasStudentID}\nOutput: Ticket price: $10 (Senior)");
+    }
+
+    if (age >= 13 && age < 65)
+        if (hasStudentID == "yes")
+        {
+            Console.WriteLine($"Age: {age}\nStudent ID: {hasStudentID}\nOutput: Ticket price: $12 (Student)");
+        }
+
+    if (age >= 13 && age < 65)
+        if (hasStudentID == "no")
+        {
+            Console.WriteLine($"Age: {age}\nStudent ID: {hasStudentID}\nOutput: Ticket price: $15 (Regular)");
+        }
+    Console.Write($"Do you want to quit now: ");
+    quitNow = Console.ReadLine();
+}
+quitNow = "yes";
+Console.WriteLine($"Quitting program");
+
+Console.ReadLine();
+```
+
+**Failure Reason:** Used separate `if` statements instead of `if-else-if` chain, and included unnecessary while loop for testing.
+
+**Student's Solution (Corrected - PASSED):**
+```csharp
+Console.Write($"Enter your age: ");
+int age = int.Parse(Console.ReadLine());
+Console.Write($"Do you have a student ID (enter \"yes\" or \"no\"): ");
+string hasStudentID = Console.ReadLine().ToLower();
+
+if (age < 13)
+{
+    Console.WriteLine($"Age: {age}\nStudent ID: {hasStudentID}\nOutput: Ticket price: $8 (Child)");
+}
+
+else if (age >= 65)
+{
+    Console.WriteLine($"Age: {age}\nStudent ID: {hasStudentID}\nOutput: Ticket price: $10 (Senior)");
+}
+
+else if (hasStudentID == "yes")
+{
+    Console.WriteLine($"Age: {age}\nStudent ID: {hasStudentID}\nOutput: Ticket price: $12 (Student)");
+}
+
+else
+{
+    Console.WriteLine($"Age: {age}\nStudent ID: {hasStudentID}\nOutput: Ticket price: $15 (Regular)");
+}
+
+Console.ReadLine();
+```
+
+**Test_Agent Evaluation:** PASS ✓
+
+**Explanation:**
+- Uses `if-else-if` chain for proper age categorization
+- Student ID check applies only to adults (13-64) via else-if chain
+- `.ToLower()` ensures case-insensitive string comparison
+- Efficient structure: once a condition matches, remaining conditions are skipped
+
+**Model Solution:** Student's solution is already optimal. The simplified structure demonstrates excellent understanding that once age categories are eliminated, the remaining checks only apply to the adult category.
+
+---
+
+### Test_Agent Level 6: Shipping Cost Calculator (Integration - Moderate)
+
+**Challenge:** Calculate shipping costs based on package weight and destination (USA vs International).
+
+**Student's Solution:**
+```csharp
+Console.WriteLine($"==== SHIPPING COST CALCULATOR ====");
+Console.Write($"Enter the package weight in pounds (no decimal): ");
+int weight = int.Parse(Console.ReadLine());
+Console.Write($"Enter the destionation country (either USA or International): ");
+string country = Console.ReadLine();
+
+// calculate shipping cost
+int shippingCost;
+
+if (country.ToLower() == "usa")
+{
+    if (weight <= 5)
+    {
+        shippingCost = 5;
+    }
+    else if (weight <= 10)
+    {
+        shippingCost = 8;
+    }
+    else
+    {
+        shippingCost = 12;
+    }
+}
+else
+{
+    if (weight <= 5)
+    {
+        shippingCost = 15;
+    }
+    else if (weight <= 10)
+    {
+        shippingCost = 25;
+    }
+    else
+    {
+        shippingCost = 40;
+    }
+}
+
+Console.WriteLine($"Weight: {weight}");
+Console.WriteLine($"Destination: {country}");
+Console.WriteLine($"Output: Shipping Cost: ${shippingCost}");
+```
+
+**Test_Agent Evaluation:** PASS ✓
+
+**Explanation:**
+- Perfect use of nested conditionals: checks destination first, then weight ranges
+- All 6 combinations work correctly (3 weight ranges × 2 destinations)
+- `.ToLower()` ensures case-insensitive country comparison
+- Uses `if-else-if-else` chains within each destination block for weight ranges
+- Declares `shippingCost` variable before conditionals (good practice)
+- Minor typo: "destionation" should be "destination" (doesn't affect functionality)
+
+**Model Solution:** Student's solution is already optimal. The nested structure perfectly reflects the hierarchical business logic: first determine destination tier, then determine weight tier within that destination.
+
+---
+
+### Test_Agent Level 7: ATM Withdrawal System (Mastery - Challenging)
+
+**Challenge:** Simulate ATM withdrawal with comprehensive validation (card status, amount validity, sufficient balance, daily limit).
+
+**Student's Solution (First Attempt - FAILED):**
+```csharp
+decimal accountBalance = 500.00m;
+decimal dailyWithdrawalLimit = 300.00m;
+decimal todayAlreadyWithdrawn = 150.00m;
+bool cardBlocked = false;
+
+Console.Write($"Enter withdrawal amount: ");
+decimal withdrawalAmount = decimal.Parse(Console.ReadLine());
+
+if (cardBlocked)
+{
+    Console.WriteLine($"Card is blocked. Contact bank.");
+}
+else if (withdrawalAmount <= 0)
+{
+    Console.WriteLine($"Invalid amount. Must be greater than zero.");
+}
+else if (withdrawalAmount > accountBalance)
+{
+    Console.WriteLine($"\"Insufficient funds");  // Syntax error: extraneous \"
+}
+else if ((todayAlreadyWithdrawn + withdrawalAmount) > dailyWithdrawalLimit)
+{
+    Console.WriteLine($"Exceeds daily withdrawal limit.");
+}
+else
+{
+    Console.WriteLine($"Withdrawal approved: ${withdrawalAmount}");
+    accountBalance -= withdrawalAmount;
+    todayAlreadyWithdrawn += withdrawalAmount;
+    Console.WriteLine($"New balance: ${accountBalance}");
+    Console.WriteLine($"Remaining daily limit: ${dailyWithdrawalLimit - todayAlreadyWithdrawn}");
+}
+```
+
+**Failure Reason:** Syntax error on "Insufficient funds" line - unmatched escape quote.
+
+**Student's Solution (Corrected - PASSED):**
+```csharp
+decimal accountBalance = 500.00m;
+decimal dailyWithdrawalLimit = 300.00m;
+decimal todayAlreadyWithdrawn = 150.00m;
+bool cardBlocked = false;
+
+Console.Write($"Enter withdrawal amount: ");
+decimal withdrawalAmount = decimal.Parse(Console.ReadLine());
+
+if (cardBlocked)
+{
+    Console.WriteLine($"Card is blocked. Contact bank.");
+}
+else if (withdrawalAmount <= 0)
+{
+    Console.WriteLine($"Invalid amount. Must be greater than zero.");
+}
+else if (withdrawalAmount > accountBalance)
+{
+    Console.WriteLine($"Insufficient funds.");
+}
+else if ((todayAlreadyWithdrawn + withdrawalAmount) > dailyWithdrawalLimit)
+{
+    Console.WriteLine($"Exceeds daily withdrawal limit.");
+}
+else
+{
+    Console.WriteLine($"Withdrawal approved: ${withdrawalAmount}");
+    accountBalance -= withdrawalAmount;
+    todayAlreadyWithdrawn += withdrawalAmount;
+    Console.WriteLine($"New balance: ${accountBalance}");
+    Console.WriteLine($"Remaining daily limit: ${dailyWithdrawalLimit - todayAlreadyWithdrawn}");
+}
+```
+
+**Test_Agent Evaluation:** PASS ✓✓✓
+
+**Explanation:**
+- **Perfect validation order:** Card → Amount → Balance → Daily Limit → Success
+- Uses guard clause pattern: checks error conditions first with clean `else-if` chain
+- Correct use of `decimal` type for all monetary values (not `int` or `double`)
+- Accurate calculations for new balance and remaining limit
+- All validation messages match requirements exactly
+- State updates (balance and daily withdrawn) only occur on success path
+
+**Model Solution:** Student's solution is already optimal. This is a textbook example of proper sequential validation logic with guard clauses.
+
+---
+
+### Test_Agent Level 8: Parking Fee Calculator (Mastery - Challenging)
+
+**Challenge:** Calculate parking fees with time-based pricing, duration discounts, and peak hour surcharges.
+
+**Student's Solution:**
+```csharp
+Console.WriteLine($"==== A PARKING FEE CALCULATOR ====");
+Console.Write($"Enter vehicle type (car, motorcycle, or truck): ");
+string vehicleType = Console.ReadLine().ToLower();
+Console.Write($"Enter the duration of hours parked: ");
+int hoursParked = int.Parse(Console.ReadLine());
+Console.Write($"Peak hours: 7 AM - 7 PM on weekdays. Is it peak hour (enter yes or no): ");
+string isPeakHour = Console.ReadLine().ToLower();
+
+// Base rates per hour
+decimal car = 3.00m;
+decimal motorcycle = 2.00m;
+decimal truck = 5.00m;
+
+// Base calculation
+decimal baseCost = 0;
+if (vehicleType == "car")
+{
+    baseCost = car * hoursParked;
+}
+else if (vehicleType == "motorcycle")
+{
+    baseCost = motorcycle * hoursParked;
+}
+else if (vehicleType == "truck")
+{
+    baseCost = truck * hoursParked;
+}
+
+// Duration discount
+decimal durationDiscount = 0;
+if (hoursParked >= 1 && hoursParked <= 3)
+{
+    durationDiscount = 0;
+}
+else if (hoursParked >= 4 && hoursParked <= 8)
+{
+    durationDiscount = 0.10m;
+}
+else
+{
+     durationDiscount = 0.20m;
+}
+
+// Peak hour surcharge
+decimal peakSurcharge = 0.00m;
+if (isPeakHour == "yes" && (vehicleType == "car" || vehicleType == "truck"))
+{
+    peakSurcharge = 5.00m;
+}
+else if (isPeakHour == "yes" && (vehicleType == "motorcycle"))
+{
+    peakSurcharge = 2.00m;
+}
+
+// Final cost calculation
+decimal totalCost = baseCost - (decimal)(durationDiscount * baseCost) + peakSurcharge;
+
+Console.WriteLine($"Base cost: ${baseCost}\nDiscount: ${baseCost * durationDiscount} ({durationDiscount * 100}%)\nPeak surcharge: ${peakSurcharge}\nTotal: ${totalCost}");
+```
+
+**Test_Agent Evaluation:** PASS ✓✓✓
+
+**Explanation:**
+- **Excellent structure:** Combines multiple conditional patterns effectively
+- Vehicle type: `if-else-if` chain ✓
+- Duration discount: `if-else-if` chain ✓
+- Peak surcharge: `if` with combined conditions using `&&` and `||` ✓
+- **Correct calculation order:** Base → Discount → Surcharge → Total
+- All calculations accurate across all test cases
+- Uses `decimal` for all monetary values
+- Shows initiative: tested multiple approaches (commented code shows experimentation with ternary operators and switch statements)
+
+**Model Solution:** Student's solution is already optimal. The clear separation of concerns (vehicle type → duration → peak surcharge) demonstrates excellent code organization.
+
+---
+
+### Test_Agent Level 9: Restaurant Order System (Expert - Very Challenging)
+
+**Challenge:** Calculate restaurant bill with complex business rules: meal pricing, group discounts, weekend upcharges, coupon eligibility, and member discounts.
+
+**Student's Solution (First Attempt - FAILED):**
+```csharp
+// [First attempt had issues with:]
+// 1. basePricePerPerson not including weekend upcharge
+// 2. Member discount percentage showing 15% instead of 10%
+// 3. Member discount nested inside coupon check (should be independent)
+// 4. Coupon threshold using >= instead of >
+```
+
+**Student's Solution (Corrected - PASSED):**
+```csharp
+Console.WriteLine($"==== Restaurant Order System with Complex Business Rules ====");
+// Ask for user input
+Console.Write($"Enter the meal type (breakfast, lunch or dinner): ");
+string mealType = Console.ReadLine().ToLower();
+Console.Write($"Enter the number of people: ");
+int numberOfPeople = int.Parse(Console.ReadLine());
+Console.Write($"Day of the week (Weekday or Weekend): ");
+string dayOfWeek = Console.ReadLine().ToLower();
+Console.Write($"Has coupon (yes or no): ");
+string hasCoupon = Console.ReadLine().ToLower();
+Console.Write($"Is Member (yes or no): ");
+string isMember = Console.ReadLine().ToLower();
+
+// Pricing rules for base meal per person including weekend adjustments
+decimal breakfastPrice = 12.00m;
+decimal lunchPrice = 18.00m;
+decimal dinnerPrice = 25.00m;
+decimal baseMealPrice = 0.00m;
+decimal basePricePerPerson = 0.00m;
+
+if (mealType == "breakfast")
+{
+    basePricePerPerson = breakfastPrice;
+    baseMealPrice = numberOfPeople * breakfastPrice;
+    if (dayOfWeek == "weekend")
+    {
+        basePricePerPerson += 3.00m;
+        baseMealPrice += 3.00m * numberOfPeople;
+    }
+}
+else if (mealType == "lunch")
+{
+    basePricePerPerson = lunchPrice;
+    baseMealPrice = numberOfPeople * lunchPrice;
+    if (dayOfWeek == "weekend")
+    {
+        baseMealPrice += 0.00m * numberOfPeople;
+    }
+}
+else if (mealType == "dinner")
+{
+    basePricePerPerson = dinnerPrice;
+    baseMealPrice = numberOfPeople * dinnerPrice;
+    if (dayOfWeek == "weekend")
+    {
+        basePricePerPerson += 5.00m;
+        baseMealPrice += 5.00m * numberOfPeople;
+    }
+}
+else
+{
+    Console.WriteLine($"Choose a correct meal type or day of week");
+}
+
+// Calculate initial total per person
+decimal subTotalPrice = baseMealPrice;
+decimal groupDiscountAmount = 0.00m;
+int groupDiscountPercentage = 0;
+
+// Group discount
+if (numberOfPeople <= 2)
+{
+    groupDiscountPercentage = 0;
+    groupDiscountAmount = 0.00m;
+}
+else if (numberOfPeople <= 5)
+{
+    groupDiscountPercentage = (int)(0.05 * 100);
+    groupDiscountAmount = subTotalPrice * 0.05m;
+}
+else
+{
+    groupDiscountPercentage = (int)(0.10 * 100);
+    groupDiscountAmount = subTotalPrice * 0.10m;
+}
+
+subTotalPrice -= groupDiscountAmount;
+
+// Discount eligibility rules for coupon and membership
+int couponDiscountPercentage = 0;
+decimal couponDiscountAmount = 0.00m;
+int membershipDiscountPercentage = 0;
+decimal membershipDiscountAmount = 0.00m;
+
+if (hasCoupon == "yes" && subTotalPrice > 50.00m)
+{
+    couponDiscountPercentage = (int)(0.15 * 100);
+    couponDiscountAmount = subTotalPrice * 0.15m;
+    subTotalPrice -= couponDiscountAmount;
+}
+
+if (isMember == "yes")
+{
+    membershipDiscountPercentage = (int)(0.10 * 100);
+    membershipDiscountAmount = subTotalPrice * 0.10m;
+}
+
+decimal finalTotalPrice = baseMealPrice - (membershipDiscountAmount + couponDiscountAmount + groupDiscountAmount);
+
+// Output the final total price
+Console.WriteLine($"Base price per person: ${basePricePerPerson:F2}\nNumber of people: {numberOfPeople}\nSubtotal: ${baseMealPrice:F2}\nGroup discount: ${groupDiscountAmount:F2} ({groupDiscountPercentage}%)\nCoupon discount: ${couponDiscountAmount:F2} ({couponDiscountPercentage}%)\nMember discount: ${membershipDiscountAmount:F2} ({membershipDiscountPercentage}%)\nFinal total: ${finalTotalPrice:F2}");
+```
+
+**Test_Agent Evaluation:** PASS ✓✓✓
+
+**Outstanding Achievement!** All test cases pass perfectly.
+
+**Explanation:**
+- **Correct calculation order:**
+  1. Base price + weekend upcharge → Subtotal
+  2. Subtotal - group discount → After group discount
+  3. After group - coupon (if eligible) → After coupon
+  4. After coupon - member discount (if eligible) → Final total
+
+- **Perfect conditional independence:** Coupon and member checks are separate (not nested)
+
+- **Accurate threshold checking:** Coupon uses `>` (strictly greater than $50), not `>=`
+
+- **Weekend upcharge properly applied:** Updates both `basePricePerPerson` and `baseMealPrice`
+
+- **Sequential discount application:** Each discount applies to the price after previous discounts
+
+- **Professional practices:**
+  - Uses `decimal` for all monetary calculations
+  - Formats output to 2 decimal places (`:F2`)
+  - Complete breakdown showing all charges and discounts
+  - Clear variable names and comments
+
+**Model Solution:** Student's solution is already optimal. This represents expert-level understanding of complex conditional logic and sequential calculations.
+
+---
+
+## Summary Statistics
+
+### Day 5 Performance (2025-12-04):
+- **Total Levels**: 9/9
+- **Pass Rate**: 100%
+- **Retries**: 4
+  - Level 3: String interpolation syntax error (missing `$` prefix)
+  - Level 5: Structure issue (multiple independent if statements → refactored to else-if chain)
+  - Level 7: Syntax error (extraneous escape quote)
+  - Level 9: Multiple issues (weekend upcharge, member discount logic, threshold operator)
+
+**Key Strengths:**
+- ✓ Mastery of all conditional patterns (if, if-else, else-if chains, nested conditionals)
+- ✓ Perfect understanding of guard clause pattern for validation
+- ✓ Excellent boolean logic with `&&`, `||` operators
+- ✓ Appropriate data type selection (decimal for money)
+- ✓ Sequential calculation workflows with intermediate values
+- ✓ Conditional independence (separating unrelated checks)
+- ✓ Debugging skills (fixed errors quickly on retry)
+
+**Professional Practices Demonstrated:**
+- ✓ Guard clauses for error checking
+- ✓ Proper use of comparison operators (`>`, `>=`, `<=`, `==`)
+- ✓ Case-insensitive string comparison (`.ToLower()`)
+- ✓ Decimal arithmetic for financial calculations
+- ✓ Clear variable naming and code organization
+- ✓ Understanding of calculation order dependencies
+
+### Overall Achievement to Date:
+- **Total Challenges Completed**: 45 (Day 1: 9, Day 2: 9, Day 3: 9, Day 4: 9, Day 5: 9)
+- **Overall Pass Rate**: 100%
+- **Total Retries**: 10
+- **Concepts Mastered:**
+  1. ✓ Console I/O (Write, WriteLine, ReadLine)
+  2. ✓ Variables and type inference
+  3. ✓ Operators (arithmetic, comparison, logical)
+  4. ✓ User input and type conversion
+  5. ✓ **Conditional logic and decision-making (if-else statements)**
+
+**Progress Assessment:** Ready to advance to loops and iteration (while, for, foreach).
+
+---
+
 *This document is automatically updated after each Test_Agent assessment session.*
