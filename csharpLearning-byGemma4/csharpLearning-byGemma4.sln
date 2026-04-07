@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37012.4 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharpLearning-byGemma4", "csharpLearning-byGemma4.csproj", "{54B1C2EE-97F3-482F-A3E9-8C0C587E6B8F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{54B1C2EE-97F3-482F-A3E9-8C0C587E6B8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54B1C2EE-97F3-482F-A3E9-8C0C587E6B8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54B1C2EE-97F3-482F-A3E9-8C0C587E6B8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54B1C2EE-97F3-482F-A3E9-8C0C587E6B8F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ECEB452A-D183-42A2-BD5B-EE90D9E9D0A8}
+	EndGlobalSection
+EndGlobal
